@@ -15,6 +15,7 @@ INSERT INTO Address VALUES ('Hantverkaregatan 23','60229','Norrköping');
 INSERT INTO Address VALUES ('Svarvaregatan 12','60250','Norrköping');
 INSERT INTO Address VALUES ('Smedjegatan 13','60339','Norrköping');
 
+
 CREATE TABLE Supplier
 (
 Id INT IDENTITY(1,1) PRIMARY KEY,
@@ -24,8 +25,8 @@ Phone CHAR(10) NOT NULL,
 AddressId INT,
 FOREIGN KEY (AddressId) REFERENCES Address(Id)
 );
-ALTER TABLE Supplier ALTER COLUMN Phone CHAR(10);
-INSERT INTO Supplier VALUES ('Björn Gustafsson','Bjorn.Gustafsson@lev.se','0762444832','2');
+
+INSERT INTO Supplier VALUES ('Erik Hammar','Erik.Hammar@lev.se','0762114822', 1);
 INSERT INTO Supplier VALUES ('Björn Gustafsson','Bjorn.Gustafsson@lev.se','0762444832', 2);
 
 CREATE TABLE Product
@@ -34,7 +35,6 @@ Id INT IDENTITY(1,1) PRIMARY KEY,
 Name NVARCHAR(50) NOT NULL,
 Description NVARCHAR(200) NOT NULL,
 Condition INT NOT NULL,
-BuyNow INT NOT NULL,
 SupplyId INT,
 FOREIGN KEY (SupplyId) REFERENCES Supplier(Id) 
 );
@@ -65,6 +65,7 @@ Password NVARCHAR(50) NOT NULL,
 AddressId INT,
 FOREIGN KEY (AddressId) REFERENCES Address(Id)
 );
+
 INSERT INTO Bidder VALUES ('Arya','Stark','8505251987','0737123123','Arya.Stark@winterfell.se','NoOne','Hejhej',3)
 
 CREATE TABLE Bids
@@ -78,4 +79,3 @@ FOREIGN KEY (BidderId) REFERENCES Bidder(Id),
 FOREIGN KEY (AuctionId) REFERENCES Auction(Id)
 );
 INSERT INTO Bids VALUES (1,1,'2016-09-27',1100)
-
