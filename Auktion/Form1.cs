@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Auktion.Models;
 
 namespace Auktion
 {
@@ -18,13 +17,10 @@ namespace Auktion
         {
             InitializeComponent();
         }
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach(var condition in Enum.GetValues(typeof(Conditions)))
-            {
-                cboProductCondition.Items.Add(condition);
-            }
+
         }
 
         #region - Supplier Tab  -
