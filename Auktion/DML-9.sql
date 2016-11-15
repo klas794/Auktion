@@ -7,4 +7,6 @@ SELECT FORMAT(Auction.EndDate, 'yyyy-MM') AS Month, MAX(Bids.Price) AS SellPrice
 	GROUP BY a.Month
 GO
 
+CREATE VIEW [List Of Customer Purchases] AS
+SELECT 
 
