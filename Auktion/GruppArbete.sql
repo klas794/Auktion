@@ -39,7 +39,7 @@ Name NVARCHAR(50) NOT NULL,
 Description NVARCHAR(200) NOT NULL,
 Condition INT NOT NULL,
 SupplyId INT,
-FOREIGN KEY (SupplyId) REFERENCES Supplier(Id) 
+FOREIGN KEY   REFERENCES Supplier(Id) 
 );
 INSERT INTO Product VALUES ('Playstation','Spelkonsol med två kontroller och fem spel',3,1);
 
