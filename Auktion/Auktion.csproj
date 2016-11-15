@@ -77,9 +77,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Sql1\GruppArbete.sql" />
+    <Content Include="Sql1\DML-9.sql" />
+    <Content Include="Sql1\GruppArbeteBest.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
