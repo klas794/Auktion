@@ -121,7 +121,22 @@ namespace Auktion
 
         private void btnReportCreate_Click(object sender, EventArgs e)
         {
+            var startDate = dtpReportStart.Value;
+            var endDate = dtpReportEnd.Value;
+            var reportHandler = new ReportHandler();
 
+            if (cboReports.Text == "Sales Report")
+            {
+                //reportHandler.SalesReport(startDate, endDate);
+            }
+            else if (cboReports.Text == "Customer Report")
+            {
+                //dgvReport.DataSource = reportHandler.CustomerReport(startDate, endDate);
+            }
+            else if (cboReports.Text == "Ending Auctions Report")
+            {
+                //dgvReport.DataSource = reportHandler.EndingAuctionsReport(startDate, endDate);
+            }
         }
 
         #endregion
