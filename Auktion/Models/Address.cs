@@ -16,13 +16,23 @@ namespace Auktion.Models
             Supplier = new HashSet<Supplier>();
         }
 
-        [Key]
+        public int Id { get; set; }
+
+        [Required]
         [StringLength(5)]
         public string Zip { get; set; }
 
         [Required]
         [StringLength(50)]
         public string City { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Street { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Country { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bidder> Bidder { get; set; }

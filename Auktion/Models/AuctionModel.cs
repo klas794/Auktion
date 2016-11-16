@@ -35,6 +35,7 @@ namespace Auktion.Models
             modelBuilder.Entity<Address>()
                 .HasMany(e => e.Supplier)
                 .WithRequired(e => e.Address)
+                .HasForeignKey(e => e.AdressId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Auction>()
@@ -81,11 +82,6 @@ namespace Auktion.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Bidder>()
-                .Property(e => e.Zip)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Bidder>()
                 .HasMany(e => e.Bids)
                 .WithRequired(e => e.Bidder)
                 .WillCascadeOnDelete(false);
@@ -96,11 +92,6 @@ namespace Auktion.Models
 
             modelBuilder.Entity<Supplier>()
                 .Property(e => e.Phone)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Supplier>()
-                .Property(e => e.Zip)
                 .IsFixedLength()
                 .IsUnicode(false);
 

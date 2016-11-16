@@ -33,16 +33,26 @@
             this.lstAuctions = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.picAuctionPicture = new System.Windows.Forms.PictureBox();
+            this.lblAuctionStartPrice = new System.Windows.Forms.Label();
             this.lblAuctionEnd = new System.Windows.Forms.Label();
             this.lblAuctionBegin = new System.Windows.Forms.Label();
             this.lblAuctionSupplier = new System.Windows.Forms.Label();
             this.lblAuctionName = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.lstAuctionBids = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnAuctionSelectPicture = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.cboAuctionSupplier = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
             this.btnAuctionCreate = new System.Windows.Forms.Button();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.txtAuctionName = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.txtAuctionBuyNow = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -59,38 +69,38 @@
             this.label27 = new System.Windows.Forms.Label();
             this.CustomerPage = new System.Windows.Forms.TabPage();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.lstCustomers = new System.Windows.Forms.ListBox();
+            this.lstBidders = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.txtCustomerUsername = new System.Windows.Forms.TextBox();
-            this.btnCustomerAdd = new System.Windows.Forms.Button();
-            this.btnCustomerEdit = new System.Windows.Forms.Button();
-            this.btnCustomerDelete = new System.Windows.Forms.Button();
+            this.txtBidderUsername = new System.Windows.Forms.TextBox();
+            this.btnBidderAdd = new System.Windows.Forms.Button();
+            this.btnBidderEdit = new System.Windows.Forms.Button();
+            this.btnBidderDelete = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtCustomerCountry = new System.Windows.Forms.TextBox();
+            this.txtBidderCountry = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtCustomerCity = new System.Windows.Forms.TextBox();
+            this.txtBidderCity = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCustomerZip = new System.Windows.Forms.TextBox();
+            this.txtBidderZip = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtCustomerStreet = new System.Windows.Forms.TextBox();
+            this.txtBidderStreet = new System.Windows.Forms.TextBox();
             this.panel8 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtCustomerLastname = new System.Windows.Forms.TextBox();
+            this.txtBidderLastname = new System.Windows.Forms.TextBox();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtCustomerPhone = new System.Windows.Forms.TextBox();
+            this.txtBidderPhone = new System.Windows.Forms.TextBox();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtCustomerEmail = new System.Windows.Forms.TextBox();
+            this.txtBidderEmail = new System.Windows.Forms.TextBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
-            this.txtCustomerFirstname = new System.Windows.Forms.TextBox();
+            this.txtBidderFirstname = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.ProductPage = new System.Windows.Forms.TabPage();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
@@ -161,17 +171,7 @@
             this.dtpReportStart = new System.Windows.Forms.DateTimePicker();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.txtAuctionName = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.lblAuctionStartPrice = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnAuctionSelectPicture = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.picAuctionPicture = new System.Windows.Forms.PictureBox();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -181,7 +181,10 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).BeginInit();
             this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -230,9 +233,6 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // AuctionsPage
@@ -323,6 +323,23 @@
             this.splitContainer4.SplitterDistance = 256;
             this.splitContainer4.TabIndex = 1;
             // 
+            // picAuctionPicture
+            // 
+            this.picAuctionPicture.Location = new System.Drawing.Point(13, 109);
+            this.picAuctionPicture.Name = "picAuctionPicture";
+            this.picAuctionPicture.Size = new System.Drawing.Size(250, 144);
+            this.picAuctionPicture.TabIndex = 3;
+            this.picAuctionPicture.TabStop = false;
+            // 
+            // lblAuctionStartPrice
+            // 
+            this.lblAuctionStartPrice.AutoSize = true;
+            this.lblAuctionStartPrice.Location = new System.Drawing.Point(10, 88);
+            this.lblAuctionStartPrice.Name = "lblAuctionStartPrice";
+            this.lblAuctionStartPrice.Size = new System.Drawing.Size(141, 18);
+            this.lblAuctionStartPrice.TabIndex = 2;
+            this.lblAuctionStartPrice.Text = "Opening Price: $$$$";
+            // 
             // lblAuctionEnd
             // 
             this.lblAuctionEnd.AutoSize = true;
@@ -384,6 +401,22 @@
             this.lstAuctionBids.TabIndex = 0;
             this.lstAuctionBids.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstAuctionBids_Format);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(144, 210);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 24);
+            this.textBox1.TabIndex = 11;
+            // 
+            // btnAuctionSelectPicture
+            // 
+            this.btnAuctionSelectPicture.Location = new System.Drawing.Point(19, 208);
+            this.btnAuctionSelectPicture.Name = "btnAuctionSelectPicture";
+            this.btnAuctionSelectPicture.Size = new System.Drawing.Size(108, 28);
+            this.btnAuctionSelectPicture.TabIndex = 10;
+            this.btnAuctionSelectPicture.Text = "Select Picture";
+            this.btnAuctionSelectPicture.UseVisualStyleBackColor = true;
+            // 
             // panel20
             // 
             this.panel20.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -426,6 +459,64 @@
             this.btnAuctionCreate.Text = "Create";
             this.btnAuctionCreate.UseVisualStyleBackColor = true;
             this.btnAuctionCreate.Click += new System.EventHandler(this.btnAuctionCreate_Click);
+            // 
+            // panel21
+            // 
+            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel21.Controls.Add(this.txtAuctionName);
+            this.panel21.Controls.Add(this.label42);
+            this.panel21.Location = new System.Drawing.Point(13, 94);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(309, 51);
+            this.panel21.TabIndex = 8;
+            // 
+            // txtAuctionName
+            // 
+            this.txtAuctionName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuctionName.Location = new System.Drawing.Point(6, 21);
+            this.txtAuctionName.Name = "txtAuctionName";
+            this.txtAuctionName.Size = new System.Drawing.Size(295, 24);
+            this.txtAuctionName.TabIndex = 3;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(101, 18);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Auction Name";
+            // 
+            // panel22
+            // 
+            this.panel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel22.Controls.Add(this.txtAuctionOpeningPrice);
+            this.panel22.Controls.Add(this.label43);
+            this.panel22.Location = new System.Drawing.Point(328, 94);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(145, 51);
+            this.panel22.TabIndex = 8;
+            // 
+            // txtAuctionOpeningPrice
+            // 
+            this.txtAuctionOpeningPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuctionOpeningPrice.Location = new System.Drawing.Point(6, 21);
+            this.txtAuctionOpeningPrice.Name = "txtAuctionOpeningPrice";
+            this.txtAuctionOpeningPrice.Size = new System.Drawing.Size(131, 24);
+            this.txtAuctionOpeningPrice.TabIndex = 3;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(3, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(101, 18);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Opening Price";
             // 
             // panel19
             // 
@@ -585,15 +676,15 @@
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.lstCustomers);
+            this.splitContainer2.Panel1.Controls.Add(this.lstBidders);
             this.splitContainer2.Panel1.Controls.Add(this.label6);
             // 
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.panel12);
-            this.splitContainer2.Panel2.Controls.Add(this.btnCustomerAdd);
-            this.splitContainer2.Panel2.Controls.Add(this.btnCustomerEdit);
-            this.splitContainer2.Panel2.Controls.Add(this.btnCustomerDelete);
+            this.splitContainer2.Panel2.Controls.Add(this.btnBidderAdd);
+            this.splitContainer2.Panel2.Controls.Add(this.btnBidderEdit);
+            this.splitContainer2.Panel2.Controls.Add(this.btnBidderDelete);
             this.splitContainer2.Panel2.Controls.Add(this.panel4);
             this.splitContainer2.Panel2.Controls.Add(this.panel5);
             this.splitContainer2.Panel2.Controls.Add(this.panel6);
@@ -607,16 +698,16 @@
             this.splitContainer2.SplitterDistance = 358;
             this.splitContainer2.TabIndex = 0;
             // 
-            // lstCustomers
+            // lstBidders
             // 
-            this.lstCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstCustomers.FormattingEnabled = true;
-            this.lstCustomers.ItemHeight = 18;
-            this.lstCustomers.Location = new System.Drawing.Point(0, 34);
-            this.lstCustomers.Name = "lstCustomers";
-            this.lstCustomers.Size = new System.Drawing.Size(358, 509);
-            this.lstCustomers.TabIndex = 2;
-            this.lstCustomers.SelectedIndexChanged += new System.EventHandler(this.lstCustomers_SelectedIndexChanged);
+            this.lstBidders.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstBidders.FormattingEnabled = true;
+            this.lstBidders.ItemHeight = 18;
+            this.lstBidders.Location = new System.Drawing.Point(0, 34);
+            this.lstBidders.Name = "lstBidders";
+            this.lstBidders.Size = new System.Drawing.Size(358, 509);
+            this.lstBidders.TabIndex = 2;
+            this.lstBidders.SelectedIndexChanged += new System.EventHandler(this.lstCustomers_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -626,7 +717,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(358, 34);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Customers";
+            this.label6.Text = "Bidders";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel12
@@ -634,7 +725,7 @@
             this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.Controls.Add(this.label16);
-            this.panel12.Controls.Add(this.txtCustomerUsername);
+            this.panel12.Controls.Add(this.txtBidderUsername);
             this.panel12.Location = new System.Drawing.Point(5, 165);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(682, 51);
@@ -649,57 +740,57 @@
             this.label16.TabIndex = 0;
             this.label16.Text = "Username";
             // 
-            // txtCustomerUsername
+            // txtBidderUsername
             // 
-            this.txtCustomerUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerUsername.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerUsername.Name = "txtCustomerUsername";
-            this.txtCustomerUsername.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerUsername.TabIndex = 2;
+            this.txtBidderUsername.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderUsername.Name = "txtBidderUsername";
+            this.txtBidderUsername.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderUsername.TabIndex = 2;
             // 
-            // btnCustomerAdd
+            // btnBidderAdd
             // 
-            this.btnCustomerAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCustomerAdd.AutoSize = true;
-            this.btnCustomerAdd.Location = new System.Drawing.Point(447, 507);
-            this.btnCustomerAdd.Name = "btnCustomerAdd";
-            this.btnCustomerAdd.Size = new System.Drawing.Size(75, 28);
-            this.btnCustomerAdd.TabIndex = 11;
-            this.btnCustomerAdd.Text = "Add";
-            this.btnCustomerAdd.UseVisualStyleBackColor = true;
-            this.btnCustomerAdd.Click += new System.EventHandler(this.btnCustomerAdd_Click);
+            this.btnBidderAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBidderAdd.AutoSize = true;
+            this.btnBidderAdd.Location = new System.Drawing.Point(447, 507);
+            this.btnBidderAdd.Name = "btnBidderAdd";
+            this.btnBidderAdd.Size = new System.Drawing.Size(75, 28);
+            this.btnBidderAdd.TabIndex = 11;
+            this.btnBidderAdd.Text = "Add";
+            this.btnBidderAdd.UseVisualStyleBackColor = true;
+            this.btnBidderAdd.Click += new System.EventHandler(this.btnCustomerAdd_Click);
             // 
-            // btnCustomerEdit
+            // btnBidderEdit
             // 
-            this.btnCustomerEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCustomerEdit.AutoSize = true;
-            this.btnCustomerEdit.Location = new System.Drawing.Point(528, 507);
-            this.btnCustomerEdit.Name = "btnCustomerEdit";
-            this.btnCustomerEdit.Size = new System.Drawing.Size(75, 28);
-            this.btnCustomerEdit.TabIndex = 10;
-            this.btnCustomerEdit.Text = "Edit";
-            this.btnCustomerEdit.UseVisualStyleBackColor = true;
-            this.btnCustomerEdit.Click += new System.EventHandler(this.btnCustomerEdit_Click);
+            this.btnBidderEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBidderEdit.AutoSize = true;
+            this.btnBidderEdit.Location = new System.Drawing.Point(528, 507);
+            this.btnBidderEdit.Name = "btnBidderEdit";
+            this.btnBidderEdit.Size = new System.Drawing.Size(75, 28);
+            this.btnBidderEdit.TabIndex = 10;
+            this.btnBidderEdit.Text = "Edit";
+            this.btnBidderEdit.UseVisualStyleBackColor = true;
+            this.btnBidderEdit.Click += new System.EventHandler(this.btnCustomerEdit_Click);
             // 
-            // btnCustomerDelete
+            // btnBidderDelete
             // 
-            this.btnCustomerDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCustomerDelete.AutoSize = true;
-            this.btnCustomerDelete.Location = new System.Drawing.Point(609, 507);
-            this.btnCustomerDelete.Name = "btnCustomerDelete";
-            this.btnCustomerDelete.Size = new System.Drawing.Size(75, 28);
-            this.btnCustomerDelete.TabIndex = 9;
-            this.btnCustomerDelete.Text = "Delete";
-            this.btnCustomerDelete.UseVisualStyleBackColor = true;
-            this.btnCustomerDelete.Click += new System.EventHandler(this.btnCustomerDelete_Click);
+            this.btnBidderDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBidderDelete.AutoSize = true;
+            this.btnBidderDelete.Location = new System.Drawing.Point(609, 507);
+            this.btnBidderDelete.Name = "btnBidderDelete";
+            this.btnBidderDelete.Size = new System.Drawing.Size(75, 28);
+            this.btnBidderDelete.TabIndex = 9;
+            this.btnBidderDelete.Text = "Delete";
+            this.btnBidderDelete.UseVisualStyleBackColor = true;
+            this.btnBidderDelete.Click += new System.EventHandler(this.btnCustomerDelete_Click);
             // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.txtCustomerCountry);
+            this.panel4.Controls.Add(this.txtBidderCountry);
             this.panel4.Location = new System.Drawing.Point(5, 450);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(682, 51);
@@ -714,21 +805,21 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "Country";
             // 
-            // txtCustomerCountry
+            // txtBidderCountry
             // 
-            this.txtCustomerCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerCountry.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerCountry.Name = "txtCustomerCountry";
-            this.txtCustomerCountry.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerCountry.TabIndex = 2;
+            this.txtBidderCountry.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderCountry.Name = "txtBidderCountry";
+            this.txtBidderCountry.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderCountry.TabIndex = 2;
             // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.label8);
-            this.panel5.Controls.Add(this.txtCustomerCity);
+            this.panel5.Controls.Add(this.txtBidderCity);
             this.panel5.Location = new System.Drawing.Point(181, 393);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(506, 51);
@@ -743,19 +834,19 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "City";
             // 
-            // txtCustomerCity
+            // txtBidderCity
             // 
-            this.txtCustomerCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerCity.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerCity.Name = "txtCustomerCity";
-            this.txtCustomerCity.Size = new System.Drawing.Size(497, 24);
-            this.txtCustomerCity.TabIndex = 2;
+            this.txtBidderCity.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderCity.Name = "txtBidderCity";
+            this.txtBidderCity.Size = new System.Drawing.Size(497, 24);
+            this.txtBidderCity.TabIndex = 2;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label9);
-            this.panel6.Controls.Add(this.txtCustomerZip);
+            this.panel6.Controls.Add(this.txtBidderZip);
             this.panel6.Location = new System.Drawing.Point(5, 393);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(170, 51);
@@ -770,21 +861,21 @@
             this.label9.TabIndex = 0;
             this.label9.Text = "Zip Code";
             // 
-            // txtCustomerZip
+            // txtBidderZip
             // 
-            this.txtCustomerZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerZip.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerZip.Name = "txtCustomerZip";
-            this.txtCustomerZip.Size = new System.Drawing.Size(161, 24);
-            this.txtCustomerZip.TabIndex = 2;
+            this.txtBidderZip.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderZip.Name = "txtBidderZip";
+            this.txtBidderZip.Size = new System.Drawing.Size(161, 24);
+            this.txtBidderZip.TabIndex = 2;
             // 
             // panel7
             // 
             this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.label10);
-            this.panel7.Controls.Add(this.txtCustomerStreet);
+            this.panel7.Controls.Add(this.txtBidderStreet);
             this.panel7.Location = new System.Drawing.Point(5, 336);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(682, 51);
@@ -799,21 +890,21 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Street Address";
             // 
-            // txtCustomerStreet
+            // txtBidderStreet
             // 
-            this.txtCustomerStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerStreet.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerStreet.Name = "txtCustomerStreet";
-            this.txtCustomerStreet.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerStreet.TabIndex = 2;
+            this.txtBidderStreet.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderStreet.Name = "txtBidderStreet";
+            this.txtBidderStreet.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderStreet.TabIndex = 2;
             // 
             // panel8
             // 
             this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.Controls.Add(this.label11);
-            this.panel8.Controls.Add(this.txtCustomerLastname);
+            this.panel8.Controls.Add(this.txtBidderLastname);
             this.panel8.Location = new System.Drawing.Point(5, 108);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(682, 51);
@@ -828,21 +919,21 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Lastname";
             // 
-            // txtCustomerLastname
+            // txtBidderLastname
             // 
-            this.txtCustomerLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerLastname.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerLastname.Name = "txtCustomerLastname";
-            this.txtCustomerLastname.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerLastname.TabIndex = 2;
+            this.txtBidderLastname.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderLastname.Name = "txtBidderLastname";
+            this.txtBidderLastname.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderLastname.TabIndex = 2;
             // 
             // panel9
             // 
             this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.Controls.Add(this.label12);
-            this.panel9.Controls.Add(this.txtCustomerPhone);
+            this.panel9.Controls.Add(this.txtBidderPhone);
             this.panel9.Location = new System.Drawing.Point(5, 279);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(682, 51);
@@ -857,21 +948,21 @@
             this.label12.TabIndex = 0;
             this.label12.Text = "Phone Number";
             // 
-            // txtCustomerPhone
+            // txtBidderPhone
             // 
-            this.txtCustomerPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerPhone.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerPhone.Name = "txtCustomerPhone";
-            this.txtCustomerPhone.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerPhone.TabIndex = 2;
+            this.txtBidderPhone.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderPhone.Name = "txtBidderPhone";
+            this.txtBidderPhone.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderPhone.TabIndex = 2;
             // 
             // panel10
             // 
             this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.Controls.Add(this.label13);
-            this.panel10.Controls.Add(this.txtCustomerEmail);
+            this.panel10.Controls.Add(this.txtBidderEmail);
             this.panel10.Location = new System.Drawing.Point(5, 222);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(682, 51);
@@ -886,21 +977,21 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Email";
             // 
-            // txtCustomerEmail
+            // txtBidderEmail
             // 
-            this.txtCustomerEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerEmail.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerEmail.Name = "txtCustomerEmail";
-            this.txtCustomerEmail.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerEmail.TabIndex = 2;
+            this.txtBidderEmail.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderEmail.Name = "txtBidderEmail";
+            this.txtBidderEmail.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderEmail.TabIndex = 2;
             // 
             // panel11
             // 
             this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.Controls.Add(this.label14);
-            this.panel11.Controls.Add(this.txtCustomerFirstname);
+            this.panel11.Controls.Add(this.txtBidderFirstname);
             this.panel11.Location = new System.Drawing.Point(5, 51);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(682, 51);
@@ -915,14 +1006,14 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Firstname";
             // 
-            // txtCustomerFirstname
+            // txtBidderFirstname
             // 
-            this.txtCustomerFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtBidderFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCustomerFirstname.Location = new System.Drawing.Point(6, 21);
-            this.txtCustomerFirstname.Name = "txtCustomerFirstname";
-            this.txtCustomerFirstname.Size = new System.Drawing.Size(673, 24);
-            this.txtCustomerFirstname.TabIndex = 2;
+            this.txtBidderFirstname.Location = new System.Drawing.Point(6, 21);
+            this.txtBidderFirstname.Name = "txtBidderFirstname";
+            this.txtBidderFirstname.Size = new System.Drawing.Size(673, 24);
+            this.txtBidderFirstname.TabIndex = 2;
             // 
             // label15
             // 
@@ -932,7 +1023,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(692, 34);
             this.label15.TabIndex = 0;
-            this.label15.Text = "Manage Customers";
+            this.label15.Text = "Manage Bidders";
             this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProductPage
@@ -1692,100 +1783,9 @@
             this.label28.Text = "Report";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel21
-            // 
-            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel21.Controls.Add(this.txtAuctionName);
-            this.panel21.Controls.Add(this.label42);
-            this.panel21.Location = new System.Drawing.Point(13, 94);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(309, 51);
-            this.panel21.TabIndex = 8;
-            // 
-            // txtAuctionName
-            // 
-            this.txtAuctionName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuctionName.Location = new System.Drawing.Point(6, 21);
-            this.txtAuctionName.Name = "txtAuctionName";
-            this.txtAuctionName.Size = new System.Drawing.Size(295, 24);
-            this.txtAuctionName.TabIndex = 3;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(3, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(101, 18);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Auction Name";
-            // 
-            // lblAuctionStartPrice
-            // 
-            this.lblAuctionStartPrice.AutoSize = true;
-            this.lblAuctionStartPrice.Location = new System.Drawing.Point(10, 88);
-            this.lblAuctionStartPrice.Name = "lblAuctionStartPrice";
-            this.lblAuctionStartPrice.Size = new System.Drawing.Size(141, 18);
-            this.lblAuctionStartPrice.TabIndex = 2;
-            this.lblAuctionStartPrice.Text = "Opening Price: $$$$";
-            // 
-            // panel22
-            // 
-            this.panel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel22.Controls.Add(this.txtAuctionOpeningPrice);
-            this.panel22.Controls.Add(this.label43);
-            this.panel22.Location = new System.Drawing.Point(328, 94);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(145, 51);
-            this.panel22.TabIndex = 8;
-            // 
-            // txtAuctionOpeningPrice
-            // 
-            this.txtAuctionOpeningPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuctionOpeningPrice.Location = new System.Drawing.Point(6, 21);
-            this.txtAuctionOpeningPrice.Name = "txtAuctionOpeningPrice";
-            this.txtAuctionOpeningPrice.Size = new System.Drawing.Size(131, 24);
-            this.txtAuctionOpeningPrice.TabIndex = 3;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(3, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(101, 18);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Opening Price";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnAuctionSelectPicture
-            // 
-            this.btnAuctionSelectPicture.Location = new System.Drawing.Point(19, 208);
-            this.btnAuctionSelectPicture.Name = "btnAuctionSelectPicture";
-            this.btnAuctionSelectPicture.Size = new System.Drawing.Size(108, 28);
-            this.btnAuctionSelectPicture.TabIndex = 10;
-            this.btnAuctionSelectPicture.Text = "Select Picture";
-            this.btnAuctionSelectPicture.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(144, 210);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 24);
-            this.textBox1.TabIndex = 11;
-            // 
-            // picAuctionPicture
-            // 
-            this.picAuctionPicture.Location = new System.Drawing.Point(13, 109);
-            this.picAuctionPicture.Name = "picAuctionPicture";
-            this.picAuctionPicture.Size = new System.Drawing.Size(250, 144);
-            this.picAuctionPicture.TabIndex = 3;
-            this.picAuctionPicture.TabStop = false;
             // 
             // Form1
             // 
@@ -1809,8 +1809,13 @@
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).EndInit();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -1889,11 +1894,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1921,38 +1921,38 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TabPage CustomerPage;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.ListBox lstCustomers;
+        private System.Windows.Forms.ListBox lstBidders;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel12;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox txtCustomerUsername;
-        private System.Windows.Forms.Button btnCustomerAdd;
-        private System.Windows.Forms.Button btnCustomerEdit;
-        private System.Windows.Forms.Button btnCustomerDelete;
+        private System.Windows.Forms.TextBox txtBidderUsername;
+        private System.Windows.Forms.Button btnBidderAdd;
+        private System.Windows.Forms.Button btnBidderEdit;
+        private System.Windows.Forms.Button btnBidderDelete;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtCustomerCountry;
+        private System.Windows.Forms.TextBox txtBidderCountry;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtCustomerCity;
+        private System.Windows.Forms.TextBox txtBidderCity;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txtCustomerZip;
+        private System.Windows.Forms.TextBox txtBidderZip;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCustomerStreet;
+        private System.Windows.Forms.TextBox txtBidderStreet;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtCustomerLastname;
+        private System.Windows.Forms.TextBox txtBidderLastname;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtCustomerPhone;
+        private System.Windows.Forms.TextBox txtBidderPhone;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtCustomerEmail;
+        private System.Windows.Forms.TextBox txtBidderEmail;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox txtCustomerFirstname;
+        private System.Windows.Forms.TextBox txtBidderFirstname;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage ProductPage;
         private System.Windows.Forms.SplitContainer splitContainer5;
