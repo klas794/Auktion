@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE GetMonthlyRevenue
+﻿CREATE VIEW [List Of Customer Purchases] AS	
 AS
 SELECT SUM(SellPrice) FROM (
 SELECT FORMAT(Auction.EndDate, 'yyyy-MM') AS Month, MAX(Bids.Price) AS SellPrice FROM Auction
@@ -8,7 +8,3 @@ SELECT FORMAT(Auction.EndDate, 'yyyy-MM') AS Month, MAX(Bids.Price) AS SellPrice
 	) a
 	GROUP BY a.Month
 GO
-
-CREATE VIEW [List Of Customer Purchases] AS	
-SELECT 
-
