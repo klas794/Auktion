@@ -1,10 +1,8 @@
 namespace Auktion.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("Bidder")]
     public partial class Bidder
@@ -24,10 +22,6 @@ namespace Auktion.Models
         [Required]
         [StringLength(50)]
         public string Lastname { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string SSN { get; set; }
 
         [Required]
         [StringLength(10)]

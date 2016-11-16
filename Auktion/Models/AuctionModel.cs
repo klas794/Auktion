@@ -1,9 +1,6 @@
 namespace Auktion.Models
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
 
     public partial class AuctionModel : DbContext
     {
@@ -70,11 +67,6 @@ namespace Auktion.Models
             modelBuilder.Entity<AuctionHistory>()
                 .Property(e => e.FinalBid)
                 .HasPrecision(38, 2);
-
-            modelBuilder.Entity<Bidder>()
-                .Property(e => e.SSN)
-                .IsFixedLength()
-                .IsUnicode(false);
 
             modelBuilder.Entity<Bidder>()
                 .Property(e => e.Phone)

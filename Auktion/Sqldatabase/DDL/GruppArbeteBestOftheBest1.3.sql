@@ -1,3 +1,6 @@
+DROP DATABASE Auction
+CREATE DATABASE Auction
+USE Auction
 
 CREATE TABLE Address
 (
@@ -64,7 +67,6 @@ CREATE TABLE Bidder
 Id INT IDENTITY(1,1) PRIMARY KEY,
 Firstname NVARCHAR(50) NOT NULL,
 Lastname NVARCHAR(50) NOT NULL,
-SSN CHAR(10) NOT NULL,
 Phone CHAR(10) NOT NULL,
 Email NVARCHAR(50) NOT NULL,
 Username NVARCHAR(50) NOT NULL,
@@ -72,7 +74,7 @@ AddressId INT NOT NULL,
 FOREIGN KEY (AddressId) REFERENCES Address(Id)
 );
 
-INSERT INTO Bidder VALUES ('Arya','Stark','8505251987','0737123123','Arya.Stark@winterfell.se','NoOne',3)
+INSERT INTO Bidder VALUES ('Arya','Stark','0737123123','Arya.Stark@winterfell.se','NoOne',3)
 
 GO
 CREATE TABLE Bids
@@ -108,7 +110,7 @@ FinalBid DECIMAL(38,2) NOT NULL,
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
 
-INSERT INTO AuctionHistory VALUES (3,'PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,27)
+INSERT INTO AuctionHistory VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,27)
 
 GO
 

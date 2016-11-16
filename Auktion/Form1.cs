@@ -1,14 +1,7 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Auktion
@@ -80,6 +73,15 @@ namespace Auktion
             txtSupplierPhoneNumber.Text = supplier.Phone;
         }
 
+        private void lstSuppliers_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string supplierId = ((Supplier)e.ListItem).Id.ToString();
+            string supplierFirstname = ((Supplier)e.ListItem).Firstname;
+            string supplierLastname = ((Supplier)e.ListItem).Lastname;
+
+            e.Value = "[" + supplierId + "] " + supplierFirstname + " " + supplierLastname;
+        }
+
         #endregion
 
         #region - Product Tab -
@@ -91,26 +93,47 @@ namespace Auktion
                 Name = txtProductName.Text,
                 Description = txtProductDescription.Text,
                 SupplyId = (cboProductSupplier.SelectedItem as Supplier).Id,
-                Condition = 10//int.Parse(cboProductCondition.SelectedText)
+                Condition = (Product.Conditions)cboProductCondition.SelectedItem
             };
+
+
             var result = _productController.Create(product);
 
             if (result.Count > 0)
             {
-                MessageBox.Show("Error");
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstProducts.DataSource = _productController.Read();
+        }
+        private void btnProductEdit_Click(object sender, EventArgs e)
+        {
+            var id = (int)lstProducts.SelectedValue;
+            var name = txtProductName.Text;
+            var supplyId = (int)cboProductSupplier.SelectedValue;
+            var description = txtProductDescription.Text;
+            var condition = (Product.Conditions)cboProductCondition.SelectedItem;
+
+            var result = _productController.Update(id,name,supplyId,description,condition);
+
+            if(result.Count > 0)
+            {
+                MessageBox.Show(string.Join(Environment.NewLine,result));
             }
 
             lstProducts.DataSource = _productController.Read();
         }
 
-        private void btnProductEdit_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
+            var result = _productController.Delete(lstProducts.SelectedItem as Product);
 
+            if(!result)
+            {
+                MessageBox.Show("Could not Delete Selected Product");
+            }
+
+            lstProducts.DataSource = _productController.Read();
         }
 
         private void lstProducts_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,17 +146,21 @@ namespace Auktion
             cboProductCondition.Text = product.Condition.ToString(); ;
         }
 
-        private void btnCustomerAdd_Click(object sender, EventArgs e)
+        #endregion
+
+        #region - Bidder Tab -
+
+        private void btnBidderAdd_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCustomerEdit_Click(object sender, EventArgs e)
+        private void btnBidderEdit_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void btnCustomerDelete_Click(object sender, EventArgs e)
+        private void btnBidderDelete_Click(object sender, EventArgs e)
         {
 
         }
@@ -152,10 +179,18 @@ namespace Auktion
             txtBidderEmail.Text = bidder.Email;
             txtBidderPhone.Text = bidder.Phone;
         }
+        private void lstBidders_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string bidderId = ((Bidder)e.ListItem).Id.ToString();
+            string bidderFirstname = ((Bidder)e.ListItem).Firstname;
+            string bidderLastname = ((Bidder)e.ListItem).Lastname;
+
+            e.Value = "[" + bidderId + "] " + bidderFirstname + " " + bidderLastname;
+        }
 
         #endregion
 
-        #region - Auctions -
+        #region - Auction Tab -
 
         private void lstAuctions_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -172,7 +207,6 @@ namespace Auktion
             lstAuctionBids.ValueMember = "BidderId";
         }
 
-
         private void cboAuctionSupplier_SelectedIndexChanged(object sender, EventArgs e)
         {
             var supplier = cboAuctionSupplier.SelectedItem as Supplier;
@@ -181,7 +215,15 @@ namespace Auktion
             cboAuctionProduct.DisplayMember = "Name";
             cboAuctionProduct.ValueMember = "Id";
         }
+        private void lstAuctionBids_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string bidderFirstname = ((Bids)e.ListItem).Bidder.Firstname;
+            string bidderLastname = ((Bids)e.ListItem).Bidder.Lastname;
+            string bid = ((Bids)e.ListItem).Price.ToString();
+            string date = ((Bids)e.ListItem).Date.ToString();
 
+            e.Value = bid + "SEK | " + bidderFirstname + " " + bidderLastname + " | " + date;
+        }
         private void btnAuctionCreate_Click(object sender, EventArgs e)
         {
             var result = _auctionController.Create(new Auction
@@ -197,7 +239,7 @@ namespace Auktion
 
         #endregion
 
-        #region - Reports -
+        #region - Report Tab -
 
         private void btnReportCreate_Click(object sender, EventArgs e)
         {
@@ -220,25 +262,6 @@ namespace Auktion
         }
 
         #endregion
-
-        private void lstAuctionBids_Format(object sender, ListControlConvertEventArgs e)
-        {
-            string bidderFirstname = ((Bids)e.ListItem).Bidder.Firstname;
-            string bidderLastname = ((Bids)e.ListItem).Bidder.Lastname;
-            string bid = ((Bids)e.ListItem).Price.ToString();
-            string date = ((Bids)e.ListItem).Date.ToString();
-
-            e.Value = bid + "SEK | " + bidderFirstname + " " + bidderLastname + " | " + date;
-        }
-
-        private void lstBidders_Format(object sender, ListControlConvertEventArgs e)
-        {
-            string bidderId = ((Bidder)e.ListItem).Id.ToString();
-            string bidderFirstname = ((Bidder)e.ListItem).Firstname;
-            string bidderLastname = ((Bidder)e.ListItem).Lastname;
-
-            e.Value = "[" + bidderId + "] " + bidderFirstname + " " + bidderLastname;
-        }
 
         private void PopulateFormWithData()
         {
@@ -267,15 +290,8 @@ namespace Auktion
             lstBidders.DataSource = _bidderController.Read();
             lstBidders.DisplayMember = "Firstname";
             lstBidders.ValueMember = "Id";
-        }
 
-        private void lstSuppliers_Format(object sender, ListControlConvertEventArgs e)
-        {
-            string supplierId = ((Supplier)e.ListItem).Id.ToString();
-            string supplierFirstname = ((Supplier)e.ListItem).Firstname;
-            string supplierLastname = ((Supplier)e.ListItem).Lastname;
-
-            e.Value = "[" + supplierId + "] " + supplierFirstname + " " + supplierLastname;
+            cboProductCondition.DataSource = Enum.GetValues(typeof(Product.Conditions));
         }
     }
 }

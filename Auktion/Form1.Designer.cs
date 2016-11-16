@@ -761,7 +761,7 @@
             this.btnBidderAdd.TabIndex = 11;
             this.btnBidderAdd.Text = "Add";
             this.btnBidderAdd.UseVisualStyleBackColor = true;
-            this.btnBidderAdd.Click += new System.EventHandler(this.btnCustomerAdd_Click);
+            this.btnBidderAdd.Click += new System.EventHandler(this.btnBidderAdd_Click);
             // 
             // btnBidderEdit
             // 
@@ -773,7 +773,7 @@
             this.btnBidderEdit.TabIndex = 10;
             this.btnBidderEdit.Text = "Edit";
             this.btnBidderEdit.UseVisualStyleBackColor = true;
-            this.btnBidderEdit.Click += new System.EventHandler(this.btnCustomerEdit_Click);
+            this.btnBidderEdit.Click += new System.EventHandler(this.btnBidderEdit_Click);
             // 
             // btnBidderDelete
             // 
@@ -785,7 +785,7 @@
             this.btnBidderDelete.TabIndex = 9;
             this.btnBidderDelete.Text = "Delete";
             this.btnBidderDelete.UseVisualStyleBackColor = true;
-            this.btnBidderDelete.Click += new System.EventHandler(this.btnCustomerDelete_Click);
+            this.btnBidderDelete.Click += new System.EventHandler(this.btnBidderDelete_Click);
             // 
             // panel4
             // 
