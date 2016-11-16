@@ -41,21 +41,7 @@ namespace Auktion.Models
         [StringLength(50)]
         public string Username { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Password { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Street { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Country { get; set; }
-
-        [Required]
-        [StringLength(5)]
-        public string Zip { get; set; }
+        public int AddressId { get; set; }
 
         public virtual Address Address { get; set; }
 

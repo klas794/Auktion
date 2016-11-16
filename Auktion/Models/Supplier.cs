@@ -19,7 +19,11 @@ namespace Auktion.Models
 
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string Firstname { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        public string Lastname { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -29,17 +33,7 @@ namespace Auktion.Models
         [StringLength(10)]
         public string Phone { get; set; }
 
-        [Required]
-        [StringLength(50)]
-        public string Street { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string Country { get; set; }
-
-        [Required]
-        [StringLength(5)]
-        public string Zip { get; set; }
+        public int AdressId { get; set; }
 
         public decimal Commission { get; set; }
 
