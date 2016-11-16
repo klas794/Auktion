@@ -17,37 +17,20 @@ namespace Auktion
     {
         readonly AuctionController _auctionController;
         readonly SupplierController _supplierController;
+        readonly ProductController _productController;
+        readonly BidderController _bidderController;
         public Form1()
         {
             _auctionController = new AuctionController();
             _supplierController = new SupplierController();
+            _productController = new ProductController();
+            _bidderController = new BidderController();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             PopulateFormWithData();
-        }
-
-        private void PopulateFormWithData()
-        {
-            lstAuctions.DataSource = _auctionController.Read();
-            lstAuctions.DisplayMember = "Name";
-            lstAuctions.ValueMember = "Id";
-
-            var supplierDataSource = _supplierController.Read();
-
-            lstSuppliers.DataSource = supplierDataSource;
-            lstSuppliers.DisplayMember = "Name";
-            lstSuppliers.ValueMember = "Id";
-
-            cboAuctionSupplier.DataSource = supplierDataSource;
-            cboAuctionSupplier.DisplayMember = "Name";
-            cboAuctionSupplier.ValueMember = "Id";
-
-            cboProductSupplier.DataSource = supplierDataSource;
-            cboProductSupplier.DisplayMember = "Name";
-            cboProductSupplier.ValueMember = "Id";
         }
 
         #region - Supplier Tab  -
@@ -81,7 +64,17 @@ namespace Auktion
 
         private void lstSuppliers_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var supplier = lstSuppliers.SelectedItem as Supplier;
 
+            txtSupplierFirstname.Text = supplier.Name.Substring(0, supplier.Name.IndexOf(' '));
+            txtSupplierLastname.Text = supplier.Name.Substring(supplier.Name.IndexOf(' '));
+            txtSupplierCommision.Text = (supplier.Commission * 100) + "%";
+            //txtSupplierStreet.Text = supplier.Address.Streeet;
+            txtSupplierZip.Text = supplier.Address.Zip;
+            txtSupplierCity.Text = supplier.Address.City;
+            //txtSupplierCountry.Text = supplier.Address.Country;
+            txtSupplierEmail.Text = supplier.Email;
+            txtSupplierPhoneNumber.Text = supplier.Phone;
         }
 
         #endregion
@@ -105,7 +98,9 @@ namespace Auktion
 
         private void lstProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var product = lstProducts.SelectedItem as Product;
 
+            txtProductName.Text = product.Name;
         }
 
         private void btnCustomerAdd_Click(object sender, EventArgs e)
@@ -204,6 +199,44 @@ namespace Auktion
             string date = ((Bids)e.ListItem).Date.ToString();
 
             e.Value = bid + "SEK | " + bidderFirstname + " " + bidderLastname + " | " + date;
+        }
+
+        private void lstBidders_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string bidderId = ((Bidder)e.ListItem).Id.ToString();
+            string bidderFirstname = ((Bidder)e.ListItem).Firstname;
+            string bidderLastname = ((Bidder)e.ListItem).Lastname;
+
+            e.Value = "ID:" + bidderId + " | " + bidderFirstname + " " + bidderLastname;
+        }
+
+        private void PopulateFormWithData()
+        {
+            lstAuctions.DataSource = _auctionController.Read();
+            lstAuctions.DisplayMember = "Name";
+            lstAuctions.ValueMember = "Id";
+
+            var supplierDataSource = _supplierController.Read();
+
+            lstSuppliers.DataSource = supplierDataSource;
+            lstSuppliers.DisplayMember = "Name";
+            lstSuppliers.ValueMember = "Id";
+
+            cboAuctionSupplier.DataSource = supplierDataSource;
+            cboAuctionSupplier.DisplayMember = "Name";
+            cboAuctionSupplier.ValueMember = "Id";
+
+            cboProductSupplier.DataSource = supplierDataSource;
+            cboProductSupplier.DisplayMember = "Name";
+            cboProductSupplier.ValueMember = "Id";
+
+            lstProducts.DataSource = _productController.Read();
+            lstProducts.DisplayMember = "Name";
+            lstProducts.ValueMember = "Id";
+
+            lstBidders.DataSource = _bidderController.Read();
+            lstBidders.DisplayMember = "Firstname";
+            lstBidders.ValueMember = "Id";
         }
     }
 }
