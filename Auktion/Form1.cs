@@ -134,7 +134,7 @@ namespace Auktion
             lblAuctionBegin.Text = "Start Date: " + auction.Startdate;
             lblAuctionEnd.Text = "End Date: " + auction.Enddate;
             lblAuctionName.Text = auction.Name;
-            lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Firstname + " " + auction.Product.Supplier.Lastname;
+            lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Firstname;
             lblAuctionStartPrice.Text = "OpeningPrice: " + auction.Startprice + "SEK";
 
             lstAuctionBids.DataSource = auction.Bids.ToList();
@@ -147,7 +147,7 @@ namespace Auktion
         {
             var supplier = cboAuctionSupplier.SelectedItem as Supplier;
 
-            cboAuctionProduct.DataSource = supplier.Product.ToList();
+            cboAuctionProduct.DataSource = supplier.Products.ToList();
             cboAuctionProduct.DisplayMember = "Name";
             cboAuctionProduct.ValueMember = "Id";
         }
@@ -219,7 +219,7 @@ namespace Auktion
             var supplierDataSource = _supplierController.Read();
 
             lstSuppliers.DataSource = supplierDataSource;
-            lstSuppliers.DisplayMember = "Firstname";
+            lstSuppliers.DisplayMember = "Name";
             lstSuppliers.ValueMember = "Id";
 
             cboAuctionSupplier.DataSource = supplierDataSource;

@@ -71,6 +71,7 @@
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\AuctionHistory.cs" />
     <Compile Include="Models\AuctionModel.cs" />
+    <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Bidder.cs" />
     <Compile Include="Models\Bids.cs" />
     <Compile Include="Models\Product.cs" />
@@ -109,11 +110,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
-<<<<<<< HEAD
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.3.sql" />
-=======
     <Content Include="Sqldatabase\DML\DML-8.sql" />
->>>>>>> origin/master
     <Content Include="Sqldatabase\DML\DML-9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest0.9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest1.0.sql" />

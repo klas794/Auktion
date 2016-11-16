@@ -12,13 +12,13 @@ namespace Auktion.Models
         {
         }
 
-        public virtual DbSet<Address> Address { get; set; }
-        public virtual DbSet<Auction> Auction { get; set; }
-        public virtual DbSet<AuctionHistory> AuctionHistory { get; set; }
-        public virtual DbSet<Bidder> Bidder { get; set; }
-        public virtual DbSet<Bids> Bids { get; set; }
-        public virtual DbSet<Product> Product { get; set; }
-        public virtual DbSet<Supplier> Supplier { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Auction> Auctions { get; set; }
+        public virtual DbSet<AuctionHistory> AuctionHistories { get; set; }
+        public virtual DbSet<Bidder> Bidders { get; set; }
+        public virtual DbSet<Bid> Bids { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,12 +28,12 @@ namespace Auktion.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Address>()
-                .HasMany(e => e.Bidder)
+                .HasMany(e => e.Bidders)
                 .WithRequired(e => e.Address)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Address>()
-                .HasMany(e => e.Supplier)
+                .HasMany(e => e.Suppliers)
                 .WithRequired(e => e.Address)
                 .HasForeignKey(e => e.AdressId)
                 .WillCascadeOnDelete(false);
@@ -86,7 +86,7 @@ namespace Auktion.Models
                 .WithRequired(e => e.Bidder)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<Bids>()
+            modelBuilder.Entity<Bid>()
                 .Property(e => e.Price)
                 .HasPrecision(38, 2);
 
@@ -100,7 +100,7 @@ namespace Auktion.Models
                 .HasPrecision(3, 2);
 
             modelBuilder.Entity<Supplier>()
-                .HasMany(e => e.Product)
+                .HasMany(e => e.Products)
                 .WithOptional(e => e.Supplier)
                 .HasForeignKey(e => e.SupplyId);
         }
