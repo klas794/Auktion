@@ -108,9 +108,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sql1\DML-8.sql" />
-    <Content Include="Sql1\DML-9.sql" />
-    <Content Include="Sql1\GruppArbete.sql" />
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
 <<<<<<< HEAD
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.3.sql" />
