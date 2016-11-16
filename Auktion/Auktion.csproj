@@ -94,6 +94,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="Chen\Grupp6Pdf.pdf" />
+    <None Include="Chen\Relationsmodellen.vsdx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
