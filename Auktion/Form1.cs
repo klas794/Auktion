@@ -147,7 +147,7 @@ namespace Auktion
         {
             var supplier = cboAuctionSupplier.SelectedItem as Supplier;
 
-            cboAuctionProduct.DataSource = supplier.Products.ToList();
+            cboAuctionProduct.DataSource = supplier.Product.ToList();
             cboAuctionProduct.DisplayMember = "Name";
             cboAuctionProduct.ValueMember = "Id";
         }
@@ -219,7 +219,7 @@ namespace Auktion
             var supplierDataSource = _supplierController.Read();
 
             lstSuppliers.DataSource = supplierDataSource;
-            lstSuppliers.DisplayMember = "Name";
+            lstSuppliers.DisplayMember = "Firstname";
             lstSuppliers.ValueMember = "Id";
 
             cboAuctionSupplier.DataSource = supplierDataSource;

@@ -20,7 +20,7 @@ namespace Auktion
 
         public List<Bidder> CustomerReport(DateTime startDate, DateTime endDate)
         {
-            var result = _auctionModel.Bidders.ToList();
+            var result = _auctionModel.Bidder.ToList();
             return result;
         }
 

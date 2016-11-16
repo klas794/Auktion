@@ -12,8 +12,8 @@ namespace Auktion.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            Auctions = new HashSet<Auction>();
-            AuctionHistories = new HashSet<AuctionHistory>();
+            Auction = new HashSet<Auction>();
+            AuctionHistory = new HashSet<AuctionHistory>();
         }
 
         public int Id { get; set; }
@@ -31,10 +31,10 @@ namespace Auktion.Models
         public int? SupplyId { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Auction> Auctions { get; set; }
+        public virtual ICollection<Auction> Auction { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AuctionHistory> AuctionHistories { get; set; }
+        public virtual ICollection<AuctionHistory> AuctionHistory { get; set; }
 
         public virtual Supplier Supplier { get; set; }
     }

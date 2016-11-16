@@ -25,7 +25,7 @@ namespace Auktion.Controllers
 
             if (valid)
             {
-                _auctionModel.Auctions.Add(auction);
+                _auctionModel.Auction.Add(auction);
                 _auctionModel.SaveChanges();
             }
 
@@ -34,7 +34,7 @@ namespace Auktion.Controllers
 
         public List<Supplier> Read()
         {
-            var suppliers = _auctionModel.Suppliers.ToList();
+            var suppliers = _auctionModel.Supplier.ToList();
             return suppliers;
         }
     }

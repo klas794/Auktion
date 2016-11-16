@@ -12,8 +12,8 @@ namespace Auktion.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Address()
         {
-            Bidders = new HashSet<Bidder>();
-            Suppliers = new HashSet<Supplier>();
+            Bidder = new HashSet<Bidder>();
+            Supplier = new HashSet<Supplier>();
         }
 
         public int Id { get; set; }
@@ -35,9 +35,9 @@ namespace Auktion.Models
         public string Country { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bidder> Bidders { get; set; }
+        public virtual ICollection<Bidder> Bidder { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Supplier> Suppliers { get; set; }
+        public virtual ICollection<Supplier> Supplier { get; set; }
     }
 }
