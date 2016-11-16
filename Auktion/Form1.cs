@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Auktion.Controllers;
+using Auktion.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,8 +15,10 @@ namespace Auktion
 {
     public partial class Form1 : Form
     {
+        readonly AuctionController _auctionController;
         public Form1()
         {
+            _auctionController = new AuctionController();
             InitializeComponent();
         }
 
@@ -25,7 +29,9 @@ namespace Auktion
 
         private void PopulateFormWithData()
         {
-            
+            lstAuctions.DataSource = _auctionController.Read();
+            lstAuctions.DisplayMember = "Name";
+            lstAuctions.ValueMember = "Id";
         }
 
         #region - Supplier Tab  -
@@ -112,17 +118,25 @@ namespace Auktion
 
         private void lstAuctions_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var index = lstAuctions.SelectedIndex;
+            var auction = lstAuctions.SelectedItem as Auction;
 
-            lblAuctionBegin.Text = "Start Date: "; //Add Sellecteditem.Startdate
-            lblAuctionEnd.Text = "End Date: "; //Add Sellecteditem.Enddate
-            lblAuctionName.Text = ""; //Add Sellecteditem.Name
-            lblAuctionSupplier.Text = "Supplier: "; //Add Sellecteditem.Supplier
+            lblAuctionBegin.Text = "Start Date: " + auction.Startdate;
+            lblAuctionEnd.Text = "End Date: " + auction.Enddate;
+            lblAuctionName.Text = auction.Product.Name;
+            lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Name;
+            lblAuctionStartPrice.Text = "OpeningPrice: " + auction.Startprice + "SEK";
         }
 
         private void btnAuctionCreate_Click(object sender, EventArgs e)
         {
-
+            var result = _auctionController.Create(new Auction
+            {
+                ProductId = 0,
+                Startdate = dtpAuctionStart.Value,
+                Enddate = dtpAuctionEnd.Value,
+                Startprice = decimal.Parse(txta.Text),
+                BuyNow = decimal.Parse(lbl)
+            });
         }
 
         #endregion
