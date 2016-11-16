@@ -23,7 +23,7 @@ namespace Auktion.Controllers
 
         public List<Product> Read()
         {
-            var products = _auctionModel.Product.ToList();
+            var products = _auctionModel.Products.ToList();
             return products;
         }
     }
