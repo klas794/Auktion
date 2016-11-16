@@ -33,16 +33,26 @@
             this.lstAuctions = new System.Windows.Forms.ListBox();
             this.label17 = new System.Windows.Forms.Label();
             this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.picAuctionPicture = new System.Windows.Forms.PictureBox();
+            this.lblAuctionStartPrice = new System.Windows.Forms.Label();
             this.lblAuctionEnd = new System.Windows.Forms.Label();
             this.lblAuctionBegin = new System.Windows.Forms.Label();
             this.lblAuctionSupplier = new System.Windows.Forms.Label();
             this.lblAuctionName = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.lstAuctionBids = new System.Windows.Forms.ListBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnAuctionSelectPicture = new System.Windows.Forms.Button();
             this.panel20 = new System.Windows.Forms.Panel();
             this.cboAuctionSupplier = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
             this.btnAuctionCreate = new System.Windows.Forms.Button();
+            this.panel21 = new System.Windows.Forms.Panel();
+            this.txtAuctionName = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.panel19 = new System.Windows.Forms.Panel();
             this.txtAuctionBuyNow = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -161,17 +171,7 @@
             this.dtpReportStart = new System.Windows.Forms.DateTimePicker();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
-            this.panel21 = new System.Windows.Forms.Panel();
-            this.txtAuctionName = new System.Windows.Forms.TextBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.lblAuctionStartPrice = new System.Windows.Forms.Label();
-            this.panel22 = new System.Windows.Forms.Panel();
-            this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnAuctionSelectPicture = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.picAuctionPicture = new System.Windows.Forms.PictureBox();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -181,7 +181,10 @@
             this.splitContainer4.Panel1.SuspendLayout();
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).BeginInit();
             this.panel20.SuspendLayout();
+            this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.panel19.SuspendLayout();
             this.panel18.SuspendLayout();
             this.panel17.SuspendLayout();
@@ -230,9 +233,6 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
-            this.panel21.SuspendLayout();
-            this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // AuctionsPage
@@ -323,6 +323,23 @@
             this.splitContainer4.SplitterDistance = 256;
             this.splitContainer4.TabIndex = 1;
             // 
+            // picAuctionPicture
+            // 
+            this.picAuctionPicture.Location = new System.Drawing.Point(13, 109);
+            this.picAuctionPicture.Name = "picAuctionPicture";
+            this.picAuctionPicture.Size = new System.Drawing.Size(250, 144);
+            this.picAuctionPicture.TabIndex = 3;
+            this.picAuctionPicture.TabStop = false;
+            // 
+            // lblAuctionStartPrice
+            // 
+            this.lblAuctionStartPrice.AutoSize = true;
+            this.lblAuctionStartPrice.Location = new System.Drawing.Point(10, 88);
+            this.lblAuctionStartPrice.Name = "lblAuctionStartPrice";
+            this.lblAuctionStartPrice.Size = new System.Drawing.Size(141, 18);
+            this.lblAuctionStartPrice.TabIndex = 2;
+            this.lblAuctionStartPrice.Text = "Opening Price: $$$$";
+            // 
             // lblAuctionEnd
             // 
             this.lblAuctionEnd.AutoSize = true;
@@ -371,8 +388,8 @@
             // 
             // lstAuctionBids
             // 
-            this.lstAuctionBids.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.lstAuctionBids.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lstAuctionBids.FormattingEnabled = true;
             this.lstAuctionBids.ItemHeight = 18;
@@ -383,6 +400,22 @@
             this.lstAuctionBids.Size = new System.Drawing.Size(380, 220);
             this.lstAuctionBids.TabIndex = 0;
             this.lstAuctionBids.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstAuctionBids_Format);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(144, 210);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 24);
+            this.textBox1.TabIndex = 11;
+            // 
+            // btnAuctionSelectPicture
+            // 
+            this.btnAuctionSelectPicture.Location = new System.Drawing.Point(19, 208);
+            this.btnAuctionSelectPicture.Name = "btnAuctionSelectPicture";
+            this.btnAuctionSelectPicture.Size = new System.Drawing.Size(108, 28);
+            this.btnAuctionSelectPicture.TabIndex = 10;
+            this.btnAuctionSelectPicture.Text = "Select Picture";
+            this.btnAuctionSelectPicture.UseVisualStyleBackColor = true;
             // 
             // panel20
             // 
@@ -396,7 +429,7 @@
             // 
             // cboAuctionSupplier
             // 
-            this.cboAuctionSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboAuctionSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAuctionSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAuctionSupplier.FormattingEnabled = true;
@@ -405,6 +438,7 @@
             this.cboAuctionSupplier.Size = new System.Drawing.Size(294, 26);
             this.cboAuctionSupplier.TabIndex = 1;
             this.cboAuctionSupplier.SelectedIndexChanged += new System.EventHandler(this.cboAuctionSupplier_SelectedIndexChanged);
+            this.cboAuctionSupplier.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstSuppliers_Format);
             // 
             // label33
             // 
@@ -427,9 +461,67 @@
             this.btnAuctionCreate.UseVisualStyleBackColor = true;
             this.btnAuctionCreate.Click += new System.EventHandler(this.btnAuctionCreate_Click);
             // 
+            // panel21
+            // 
+            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel21.Controls.Add(this.txtAuctionName);
+            this.panel21.Controls.Add(this.label42);
+            this.panel21.Location = new System.Drawing.Point(13, 94);
+            this.panel21.Name = "panel21";
+            this.panel21.Size = new System.Drawing.Size(309, 51);
+            this.panel21.TabIndex = 8;
+            // 
+            // txtAuctionName
+            // 
+            this.txtAuctionName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuctionName.Location = new System.Drawing.Point(6, 21);
+            this.txtAuctionName.Name = "txtAuctionName";
+            this.txtAuctionName.Size = new System.Drawing.Size(295, 24);
+            this.txtAuctionName.TabIndex = 3;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(3, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(101, 18);
+            this.label42.TabIndex = 0;
+            this.label42.Text = "Auction Name";
+            // 
+            // panel22
+            // 
+            this.panel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel22.Controls.Add(this.txtAuctionOpeningPrice);
+            this.panel22.Controls.Add(this.label43);
+            this.panel22.Location = new System.Drawing.Point(328, 94);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(145, 51);
+            this.panel22.TabIndex = 8;
+            // 
+            // txtAuctionOpeningPrice
+            // 
+            this.txtAuctionOpeningPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuctionOpeningPrice.Location = new System.Drawing.Point(6, 21);
+            this.txtAuctionOpeningPrice.Name = "txtAuctionOpeningPrice";
+            this.txtAuctionOpeningPrice.Size = new System.Drawing.Size(131, 24);
+            this.txtAuctionOpeningPrice.TabIndex = 3;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(3, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(101, 18);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Opening Price";
+            // 
             // panel19
             // 
-            this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel19.Controls.Add(this.txtAuctionBuyNow);
             this.panel19.Controls.Add(this.label24);
@@ -440,7 +532,7 @@
             // 
             // txtAuctionBuyNow
             // 
-            this.txtAuctionBuyNow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtAuctionBuyNow.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAuctionBuyNow.Location = new System.Drawing.Point(6, 21);
             this.txtAuctionBuyNow.Name = "txtAuctionBuyNow";
@@ -458,7 +550,7 @@
             // 
             // panel18
             // 
-            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel18.Controls.Add(this.dtpAuctionEnd);
             this.panel18.Controls.Add(this.label23);
@@ -469,7 +561,7 @@
             // 
             // dtpAuctionEnd
             // 
-            this.dtpAuctionEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dtpAuctionEnd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAuctionEnd.Location = new System.Drawing.Point(6, 21);
             this.dtpAuctionEnd.Name = "dtpAuctionEnd";
@@ -497,7 +589,7 @@
             // 
             // dtpAuctionStart
             // 
-            this.dtpAuctionStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.dtpAuctionStart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpAuctionStart.Location = new System.Drawing.Point(6, 21);
             this.dtpAuctionStart.Name = "dtpAuctionStart";
@@ -525,7 +617,7 @@
             // 
             // cboAuctionProduct
             // 
-            this.cboAuctionProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboAuctionProduct.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboAuctionProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboAuctionProduct.FormattingEnabled = true;
@@ -616,7 +708,7 @@
             this.lstBidders.Name = "lstBidders";
             this.lstBidders.Size = new System.Drawing.Size(358, 509);
             this.lstBidders.TabIndex = 2;
-            this.lstBidders.SelectedIndexChanged += new System.EventHandler(this.lstCustomers_SelectedIndexChanged);
+            this.lstBidders.SelectedIndexChanged += new System.EventHandler(this.lstBidders_SelectedIndexChanged);
             this.lstBidders.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstBidders_Format);
             // 
             // label6
@@ -632,7 +724,7 @@
             // 
             // panel12
             // 
-            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel12.Controls.Add(this.label16);
             this.panel12.Controls.Add(this.txtBidderUsername);
@@ -652,7 +744,7 @@
             // 
             // txtBidderUsername
             // 
-            this.txtBidderUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderUsername.Location = new System.Drawing.Point(6, 21);
             this.txtBidderUsername.Name = "txtBidderUsername";
@@ -697,7 +789,7 @@
             // 
             // panel4
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.txtBidderCountry);
@@ -717,7 +809,7 @@
             // 
             // txtBidderCountry
             // 
-            this.txtBidderCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderCountry.Location = new System.Drawing.Point(6, 21);
             this.txtBidderCountry.Name = "txtBidderCountry";
@@ -726,7 +818,7 @@
             // 
             // panel5
             // 
-            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.Controls.Add(this.label8);
             this.panel5.Controls.Add(this.txtBidderCity);
@@ -746,7 +838,7 @@
             // 
             // txtBidderCity
             // 
-            this.txtBidderCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderCity.Location = new System.Drawing.Point(6, 21);
             this.txtBidderCity.Name = "txtBidderCity";
@@ -773,7 +865,7 @@
             // 
             // txtBidderZip
             // 
-            this.txtBidderZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderZip.Location = new System.Drawing.Point(6, 21);
             this.txtBidderZip.Name = "txtBidderZip";
@@ -782,7 +874,7 @@
             // 
             // panel7
             // 
-            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel7.Controls.Add(this.label10);
             this.panel7.Controls.Add(this.txtBidderStreet);
@@ -802,7 +894,7 @@
             // 
             // txtBidderStreet
             // 
-            this.txtBidderStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderStreet.Location = new System.Drawing.Point(6, 21);
             this.txtBidderStreet.Name = "txtBidderStreet";
@@ -811,7 +903,7 @@
             // 
             // panel8
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel8.Controls.Add(this.label11);
             this.panel8.Controls.Add(this.txtBidderLastname);
@@ -831,7 +923,7 @@
             // 
             // txtBidderLastname
             // 
-            this.txtBidderLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderLastname.Location = new System.Drawing.Point(6, 21);
             this.txtBidderLastname.Name = "txtBidderLastname";
@@ -840,7 +932,7 @@
             // 
             // panel9
             // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel9.Controls.Add(this.label12);
             this.panel9.Controls.Add(this.txtBidderPhone);
@@ -860,7 +952,7 @@
             // 
             // txtBidderPhone
             // 
-            this.txtBidderPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderPhone.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderPhone.Location = new System.Drawing.Point(6, 21);
             this.txtBidderPhone.Name = "txtBidderPhone";
@@ -869,7 +961,7 @@
             // 
             // panel10
             // 
-            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel10.Controls.Add(this.label13);
             this.panel10.Controls.Add(this.txtBidderEmail);
@@ -889,7 +981,7 @@
             // 
             // txtBidderEmail
             // 
-            this.txtBidderEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderEmail.Location = new System.Drawing.Point(6, 21);
             this.txtBidderEmail.Name = "txtBidderEmail";
@@ -898,7 +990,7 @@
             // 
             // panel11
             // 
-            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel11.Controls.Add(this.label14);
             this.panel11.Controls.Add(this.txtBidderFirstname);
@@ -918,7 +1010,7 @@
             // 
             // txtBidderFirstname
             // 
-            this.txtBidderFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBidderFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBidderFirstname.Location = new System.Drawing.Point(6, 21);
             this.txtBidderFirstname.Name = "txtBidderFirstname";
@@ -997,7 +1089,7 @@
             // 
             // panel14
             // 
-            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel14.Controls.Add(this.cboProductCondition);
             this.panel14.Controls.Add(this.label20);
@@ -1008,7 +1100,7 @@
             // 
             // cboProductCondition
             // 
-            this.cboProductCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboProductCondition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboProductCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductCondition.FormattingEnabled = true;
@@ -1028,7 +1120,7 @@
             // 
             // panel16
             // 
-            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel16.Controls.Add(this.cboProductSupplier);
             this.panel16.Controls.Add(this.label22);
@@ -1039,7 +1131,7 @@
             // 
             // cboProductSupplier
             // 
-            this.cboProductSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.cboProductSupplier.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cboProductSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboProductSupplier.FormattingEnabled = true;
@@ -1047,6 +1139,7 @@
             this.cboProductSupplier.Name = "cboProductSupplier";
             this.cboProductSupplier.Size = new System.Drawing.Size(679, 26);
             this.cboProductSupplier.TabIndex = 1;
+            this.cboProductSupplier.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstSuppliers_Format);
             // 
             // label22
             // 
@@ -1095,7 +1188,7 @@
             // 
             // panel24
             // 
-            this.panel24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel24.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel24.Controls.Add(this.label31);
             this.panel24.Controls.Add(this.txtProductDescription);
@@ -1115,7 +1208,7 @@
             // 
             // txtProductDescription
             // 
-            this.txtProductDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtProductDescription.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductDescription.Location = new System.Drawing.Point(6, 21);
             this.txtProductDescription.Multiline = true;
@@ -1143,7 +1236,7 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtProductName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProductName.Location = new System.Drawing.Point(6, 21);
             this.txtProductName.Name = "txtProductName";
@@ -1215,6 +1308,7 @@
             this.lstSuppliers.Size = new System.Drawing.Size(358, 509);
             this.lstSuppliers.TabIndex = 2;
             this.lstSuppliers.SelectedIndexChanged += new System.EventHandler(this.lstSuppliers_SelectedIndexChanged);
+            this.lstSuppliers.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstSuppliers_Format);
             // 
             // label2
             // 
@@ -1229,7 +1323,7 @@
             // 
             // panel15
             // 
-            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel15.Controls.Add(this.label21);
             this.panel15.Controls.Add(this.txtSupplierCommision);
@@ -1249,7 +1343,7 @@
             // 
             // txtSupplierCommision
             // 
-            this.txtSupplierCommision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierCommision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierCommision.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierCommision.Name = "txtSupplierCommision";
@@ -1316,7 +1410,7 @@
             // 
             // panel3
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.txtSupplierCountry);
@@ -1336,7 +1430,7 @@
             // 
             // txtSupplierCountry
             // 
-            this.txtSupplierCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierCountry.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierCountry.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierCountry.Name = "txtSupplierCountry";
@@ -1345,7 +1439,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.txtSupplierCity);
@@ -1365,7 +1459,7 @@
             // 
             // txtSupplierCity
             // 
-            this.txtSupplierCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierCity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierCity.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierCity.Name = "txtSupplierCity";
@@ -1392,7 +1486,7 @@
             // 
             // txtSupplierZip
             // 
-            this.txtSupplierZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierZip.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierZip.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierZip.Name = "txtSupplierZip";
@@ -1401,7 +1495,7 @@
             // 
             // SupplierTextPanel
             // 
-            this.SupplierTextPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SupplierTextPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplierTextPanel.Controls.Add(this.label39);
             this.SupplierTextPanel.Controls.Add(this.txtSupplierStreet);
@@ -1421,7 +1515,7 @@
             // 
             // txtSupplierStreet
             // 
-            this.txtSupplierStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierStreet.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierStreet.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierStreet.Name = "txtSupplierStreet";
@@ -1430,7 +1524,7 @@
             // 
             // SupplierLastNamePanel
             // 
-            this.SupplierLastNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SupplierLastNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplierLastNamePanel.Controls.Add(this.label36);
             this.SupplierLastNamePanel.Controls.Add(this.txtSupplierLastname);
@@ -1450,7 +1544,7 @@
             // 
             // txtSupplierLastname
             // 
-            this.txtSupplierLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierLastname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierLastname.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierLastname.Name = "txtSupplierLastname";
@@ -1459,7 +1553,7 @@
             // 
             // SupplierPhoneNumberPanel
             // 
-            this.SupplierPhoneNumberPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SupplierPhoneNumberPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplierPhoneNumberPanel.Controls.Add(this.label38);
             this.SupplierPhoneNumberPanel.Controls.Add(this.txtSupplierPhoneNumber);
@@ -1479,7 +1573,7 @@
             // 
             // txtSupplierPhoneNumber
             // 
-            this.txtSupplierPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierPhoneNumber.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierPhoneNumber.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierPhoneNumber.Name = "txtSupplierPhoneNumber";
@@ -1488,7 +1582,7 @@
             // 
             // SupplierEmailPanel
             // 
-            this.SupplierEmailPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SupplierEmailPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplierEmailPanel.Controls.Add(this.label37);
             this.SupplierEmailPanel.Controls.Add(this.txtSupplierEmail);
@@ -1508,7 +1602,7 @@
             // 
             // txtSupplierEmail
             // 
-            this.txtSupplierEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierEmail.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierEmail.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierEmail.Name = "txtSupplierEmail";
@@ -1517,7 +1611,7 @@
             // 
             // SupplierFirstNamePanel
             // 
-            this.SupplierFirstNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.SupplierFirstNamePanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.SupplierFirstNamePanel.Controls.Add(this.label32);
             this.SupplierFirstNamePanel.Controls.Add(this.txtSupplierFirstname);
@@ -1537,7 +1631,7 @@
             // 
             // txtSupplierFirstname
             // 
-            this.txtSupplierFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSupplierFirstname.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierFirstname.Location = new System.Drawing.Point(6, 21);
             this.txtSupplierFirstname.Name = "txtSupplierFirstname";
@@ -1694,100 +1788,9 @@
             this.label28.Text = "Report";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel21
-            // 
-            this.panel21.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel21.Controls.Add(this.txtAuctionName);
-            this.panel21.Controls.Add(this.label42);
-            this.panel21.Location = new System.Drawing.Point(13, 94);
-            this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(309, 51);
-            this.panel21.TabIndex = 8;
-            // 
-            // txtAuctionName
-            // 
-            this.txtAuctionName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuctionName.Location = new System.Drawing.Point(6, 21);
-            this.txtAuctionName.Name = "txtAuctionName";
-            this.txtAuctionName.Size = new System.Drawing.Size(295, 24);
-            this.txtAuctionName.TabIndex = 3;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(3, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(101, 18);
-            this.label42.TabIndex = 0;
-            this.label42.Text = "Auction Name";
-            // 
-            // lblAuctionStartPrice
-            // 
-            this.lblAuctionStartPrice.AutoSize = true;
-            this.lblAuctionStartPrice.Location = new System.Drawing.Point(10, 88);
-            this.lblAuctionStartPrice.Name = "lblAuctionStartPrice";
-            this.lblAuctionStartPrice.Size = new System.Drawing.Size(141, 18);
-            this.lblAuctionStartPrice.TabIndex = 2;
-            this.lblAuctionStartPrice.Text = "Opening Price: $$$$";
-            // 
-            // panel22
-            // 
-            this.panel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel22.Controls.Add(this.txtAuctionOpeningPrice);
-            this.panel22.Controls.Add(this.label43);
-            this.panel22.Location = new System.Drawing.Point(328, 94);
-            this.panel22.Name = "panel22";
-            this.panel22.Size = new System.Drawing.Size(145, 51);
-            this.panel22.TabIndex = 8;
-            // 
-            // txtAuctionOpeningPrice
-            // 
-            this.txtAuctionOpeningPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtAuctionOpeningPrice.Location = new System.Drawing.Point(6, 21);
-            this.txtAuctionOpeningPrice.Name = "txtAuctionOpeningPrice";
-            this.txtAuctionOpeningPrice.Size = new System.Drawing.Size(131, 24);
-            this.txtAuctionOpeningPrice.TabIndex = 3;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(3, 0);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(101, 18);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "Opening Price";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnAuctionSelectPicture
-            // 
-            this.btnAuctionSelectPicture.Location = new System.Drawing.Point(19, 208);
-            this.btnAuctionSelectPicture.Name = "btnAuctionSelectPicture";
-            this.btnAuctionSelectPicture.Size = new System.Drawing.Size(108, 28);
-            this.btnAuctionSelectPicture.TabIndex = 10;
-            this.btnAuctionSelectPicture.Text = "Select Picture";
-            this.btnAuctionSelectPicture.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(144, 210);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(170, 24);
-            this.textBox1.TabIndex = 11;
-            // 
-            // picAuctionPicture
-            // 
-            this.picAuctionPicture.Location = new System.Drawing.Point(13, 109);
-            this.picAuctionPicture.Name = "picAuctionPicture";
-            this.picAuctionPicture.Size = new System.Drawing.Size(250, 144);
-            this.picAuctionPicture.TabIndex = 3;
-            this.picAuctionPicture.TabStop = false;
             // 
             // Form1
             // 
@@ -1811,8 +1814,13 @@
             this.splitContainer4.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).EndInit();
             this.panel20.ResumeLayout(false);
             this.panel20.PerformLayout();
+            this.panel21.ResumeLayout(false);
+            this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
             this.panel18.ResumeLayout(false);
@@ -1891,11 +1899,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
-            this.panel21.ResumeLayout(false);
-            this.panel21.PerformLayout();
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -44,6 +44,9 @@ namespace Auktion
         private void btnRegisterProduct_Click(object sender, EventArgs e)
         {
             cboProductSupplier.SelectedIndex = lstSuppliers.SelectedIndex;
+            txtProductDescription.Text = null;
+            txtProductName.Text = null;
+            cboProductCondition.Text = null;
             MainTabController.SelectedIndex = 1;
         }
 
@@ -69,10 +72,10 @@ namespace Auktion
             txtSupplierFirstname.Text = supplier.Firstname;
             txtSupplierLastname.Text = supplier.Lastname;
             txtSupplierCommision.Text = (supplier.Commission * 100) + "%";
-            //txtSupplierStreet.Text = supplier.Address.Streeet;
+            txtSupplierStreet.Text = supplier.Address.Street;
             txtSupplierZip.Text = supplier.Address.Zip;
             txtSupplierCity.Text = supplier.Address.City;
-            //txtSupplierCountry.Text = supplier.Address.Country;
+            txtSupplierCountry.Text = supplier.Address.Country;
             txtSupplierEmail.Text = supplier.Email;
             txtSupplierPhoneNumber.Text = supplier.Phone;
         }
@@ -83,7 +86,21 @@ namespace Auktion
 
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
+            var product = new Product
+            {
+                Name = txtProductName.Text,
+                Description = txtProductDescription.Text,
+                SupplyId = (cboProductSupplier.SelectedItem as Supplier).Id,
+                Condition = 10//int.Parse(cboProductCondition.SelectedText)
+            };
+            var result = _productController.Create(product);
 
+            if (result.Count > 0)
+            {
+                MessageBox.Show("Error");
+            }
+
+            lstProducts.DataSource = _productController.Read();
         }
 
         private void btnProductEdit_Click(object sender, EventArgs e)
@@ -100,7 +117,10 @@ namespace Auktion
         {
             var product = lstProducts.SelectedItem as Product;
 
+            cboProductSupplier.SelectedValue = product.Supplier.Id;
             txtProductName.Text = product.Name;
+            txtProductDescription.Text = product.Description;
+            cboProductCondition.Text = product.Condition.ToString(); ;
         }
 
         private void btnCustomerAdd_Click(object sender, EventArgs e)
@@ -118,9 +138,19 @@ namespace Auktion
 
         }
 
-        private void lstCustomers_SelectedIndexChanged(object sender, EventArgs e)
+        private void lstBidders_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var bidder = lstBidders.SelectedItem as Bidder;
 
+            txtBidderFirstname.Text = bidder.Firstname;
+            txtBidderLastname.Text = bidder.Lastname;
+            txtBidderUsername.Text = bidder.Username;
+            txtBidderStreet.Text = bidder.Address.Street;
+            txtBidderZip.Text = bidder.Address.Zip;
+            txtBidderCity.Text = bidder.Address.City;
+            txtBidderCountry.Text = bidder.Address.Country;
+            txtBidderEmail.Text = bidder.Email;
+            txtBidderPhone.Text = bidder.Phone;
         }
 
         #endregion
@@ -207,7 +237,7 @@ namespace Auktion
             string bidderFirstname = ((Bidder)e.ListItem).Firstname;
             string bidderLastname = ((Bidder)e.ListItem).Lastname;
 
-            e.Value = "ID:" + bidderId + " | " + bidderFirstname + " " + bidderLastname;
+            e.Value = "[" + bidderId + "] " + bidderFirstname + " " + bidderLastname;
         }
 
         private void PopulateFormWithData()
@@ -223,11 +253,11 @@ namespace Auktion
             lstSuppliers.ValueMember = "Id";
 
             cboAuctionSupplier.DataSource = supplierDataSource;
-            cboAuctionSupplier.DisplayMember = "Name";
+            cboAuctionSupplier.DisplayMember = "Firstname";
             cboAuctionSupplier.ValueMember = "Id";
 
             cboProductSupplier.DataSource = supplierDataSource;
-            cboProductSupplier.DisplayMember = "Name";
+            cboProductSupplier.DisplayMember = "Firstname";
             cboProductSupplier.ValueMember = "Id";
 
             lstProducts.DataSource = _productController.Read();
@@ -237,6 +267,15 @@ namespace Auktion
             lstBidders.DataSource = _bidderController.Read();
             lstBidders.DisplayMember = "Firstname";
             lstBidders.ValueMember = "Id";
+        }
+
+        private void lstSuppliers_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string supplierId = ((Supplier)e.ListItem).Id.ToString();
+            string supplierFirstname = ((Supplier)e.ListItem).Firstname;
+            string supplierLastname = ((Supplier)e.ListItem).Lastname;
+
+            e.Value = "[" + supplierId + "] " + supplierFirstname + " " + supplierLastname;
         }
     }
 }
