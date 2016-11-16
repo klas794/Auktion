@@ -68,7 +68,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\AuctionHistory.cs" />
-    <Compile Include="Controllers\AuctionModel.cs" />
+    <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\Bidder.cs" />
     <Compile Include="Models\Bids.cs" />
     <Compile Include="Models\Product.cs" />
