@@ -34,8 +34,14 @@ namespace Auktion.Models
         public string Street { get; set; }
 
         [Required]
+        [StringLength(50)]
+        public string Country { get; set; }
+
+        [Required]
         [StringLength(5)]
         public string Zip { get; set; }
+
+        public decimal Commission { get; set; }
 
         public virtual Address Address { get; set; }
 

@@ -38,7 +38,15 @@ namespace Auktion.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Auction>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Auction>()
                 .Property(e => e.Startprice)
+                .HasPrecision(38, 2);
+
+            modelBuilder.Entity<Auction>()
+                .Property(e => e.BuyNow)
                 .HasPrecision(38, 2);
 
             modelBuilder.Entity<Auction>()
@@ -47,7 +55,19 @@ namespace Auktion.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<AuctionHistory>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<AuctionHistory>()
                 .Property(e => e.Startprice)
+                .HasPrecision(38, 2);
+
+            modelBuilder.Entity<AuctionHistory>()
+                .Property(e => e.BuyNow)
+                .HasPrecision(38, 2);
+
+            modelBuilder.Entity<AuctionHistory>()
+                .Property(e => e.FinalBid)
                 .HasPrecision(38, 2);
 
             modelBuilder.Entity<Bidder>()
@@ -83,6 +103,10 @@ namespace Auktion.Models
                 .Property(e => e.Zip)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Supplier>()
+                .Property(e => e.Commission)
+                .HasPrecision(3, 2);
 
             modelBuilder.Entity<Supplier>()
                 .HasMany(e => e.Product)

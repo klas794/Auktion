@@ -13,6 +13,10 @@ namespace Auktion.Models
 
         public int? AuctionId { get; set; }
 
+        [Required]
+        [StringLength(50)]
+        public string Name { get; set; }
+
         public int? ProductId { get; set; }
 
         [Column(TypeName = "date")]
@@ -23,7 +27,9 @@ namespace Auktion.Models
 
         public decimal Startprice { get; set; }
 
-        public int BuyNow { get; set; }
+        public decimal BuyNow { get; set; }
+
+        public decimal FinalBid { get; set; }
 
         public virtual Auction Auction { get; set; }
 

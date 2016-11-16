@@ -132,10 +132,11 @@ namespace Auktion
             var result = _auctionController.Create(new Auction
             {
                 ProductId = 0,
+                Name = txtAuctionName.Text,
                 Startdate = dtpAuctionStart.Value,
                 Enddate = dtpAuctionEnd.Value,
-                Startprice = decimal.Parse(txta.Text),
-                BuyNow = decimal.Parse(lbl)
+                Startprice = decimal.Parse(txtAuctionOpeningPrice.Text),
+                BuyNow = int.Parse(txtAuctionBuyNow.Text)
             });
         }
 

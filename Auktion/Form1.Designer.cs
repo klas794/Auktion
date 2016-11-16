@@ -165,6 +165,9 @@
             this.txtAuctionName = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.lblAuctionStartPrice = new System.Windows.Forms.Label();
+            this.panel22 = new System.Windows.Forms.Panel();
+            this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -224,6 +227,7 @@
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.panel21.SuspendLayout();
+            this.panel22.SuspendLayout();
             this.SuspendLayout();
             // 
             // AuctionsPage
@@ -301,6 +305,7 @@
             this.splitContainer4.Panel2.Controls.Add(this.panel20);
             this.splitContainer4.Panel2.Controls.Add(this.btnAuctionCreate);
             this.splitContainer4.Panel2.Controls.Add(this.panel21);
+            this.splitContainer4.Panel2.Controls.Add(this.panel22);
             this.splitContainer4.Panel2.Controls.Add(this.panel19);
             this.splitContainer4.Panel2.Controls.Add(this.panel18);
             this.splitContainer4.Panel2.Controls.Add(this.panel17);
@@ -418,9 +423,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel19.Controls.Add(this.txtAuctionBuyNow);
             this.panel19.Controls.Add(this.label24);
-            this.panel19.Location = new System.Drawing.Point(328, 94);
+            this.panel19.Location = new System.Drawing.Point(479, 94);
             this.panel19.Name = "panel19";
-            this.panel19.Size = new System.Drawing.Size(302, 51);
+            this.panel19.Size = new System.Drawing.Size(151, 51);
             this.panel19.TabIndex = 8;
             // 
             // txtAuctionBuyNow
@@ -429,7 +434,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAuctionBuyNow.Location = new System.Drawing.Point(6, 21);
             this.txtAuctionBuyNow.Name = "txtAuctionBuyNow";
-            this.txtAuctionBuyNow.Size = new System.Drawing.Size(288, 24);
+            this.txtAuctionBuyNow.Size = new System.Drawing.Size(137, 24);
             this.txtAuctionBuyNow.TabIndex = 3;
             // 
             // label24
@@ -503,9 +508,9 @@
             this.panel13.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panel13.Controls.Add(this.cboAuctionProduct);
             this.panel13.Controls.Add(this.label40);
-            this.panel13.Location = new System.Drawing.Point(13, 94);
+            this.panel13.Location = new System.Drawing.Point(328, 37);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(309, 51);
+            this.panel13.Size = new System.Drawing.Size(302, 51);
             this.panel13.TabIndex = 4;
             // 
             // cboAuctionProduct
@@ -516,7 +521,7 @@
             this.cboAuctionProduct.FormattingEnabled = true;
             this.cboAuctionProduct.Location = new System.Drawing.Point(6, 21);
             this.cboAuctionProduct.Name = "cboAuctionProduct";
-            this.cboAuctionProduct.Size = new System.Drawing.Size(300, 26);
+            this.cboAuctionProduct.Size = new System.Drawing.Size(293, 26);
             this.cboAuctionProduct.TabIndex = 1;
             // 
             // label40
@@ -1683,9 +1688,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel21.Controls.Add(this.txtAuctionName);
             this.panel21.Controls.Add(this.label42);
-            this.panel21.Location = new System.Drawing.Point(328, 37);
+            this.panel21.Location = new System.Drawing.Point(13, 94);
             this.panel21.Name = "panel21";
-            this.panel21.Size = new System.Drawing.Size(302, 51);
+            this.panel21.Size = new System.Drawing.Size(309, 51);
             this.panel21.TabIndex = 8;
             // 
             // txtAuctionName
@@ -1694,7 +1699,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAuctionName.Location = new System.Drawing.Point(6, 21);
             this.txtAuctionName.Name = "txtAuctionName";
-            this.txtAuctionName.Size = new System.Drawing.Size(288, 24);
+            this.txtAuctionName.Size = new System.Drawing.Size(295, 24);
             this.txtAuctionName.TabIndex = 3;
             // 
             // label42
@@ -1714,6 +1719,35 @@
             this.lblAuctionStartPrice.Size = new System.Drawing.Size(141, 18);
             this.lblAuctionStartPrice.TabIndex = 2;
             this.lblAuctionStartPrice.Text = "Opening Price: $$$$";
+            // 
+            // panel22
+            // 
+            this.panel22.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel22.Controls.Add(this.txtAuctionOpeningPrice);
+            this.panel22.Controls.Add(this.label43);
+            this.panel22.Location = new System.Drawing.Point(328, 94);
+            this.panel22.Name = "panel22";
+            this.panel22.Size = new System.Drawing.Size(145, 51);
+            this.panel22.TabIndex = 8;
+            // 
+            // txtAuctionOpeningPrice
+            // 
+            this.txtAuctionOpeningPrice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAuctionOpeningPrice.Location = new System.Drawing.Point(6, 21);
+            this.txtAuctionOpeningPrice.Name = "txtAuctionOpeningPrice";
+            this.txtAuctionOpeningPrice.Size = new System.Drawing.Size(131, 24);
+            this.txtAuctionOpeningPrice.TabIndex = 3;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(3, 0);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(101, 18);
+            this.label43.TabIndex = 0;
+            this.label43.Text = "Opening Price";
             // 
             // Form1
             // 
@@ -1819,6 +1853,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1962,6 +1998,9 @@
         private System.Windows.Forms.TextBox txtAuctionName;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.Label lblAuctionStartPrice;
+        private System.Windows.Forms.Panel panel22;
+        private System.Windows.Forms.TextBox txtAuctionOpeningPrice;
+        private System.Windows.Forms.Label label43;
     }
 }
 

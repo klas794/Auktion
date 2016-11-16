@@ -68,7 +68,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\AuctionHistory.cs" />
-    <Compile Include="Models\AuctionModel.cs" />
+    <Compile Include="Controllers\AuctionModel.cs" />
     <Compile Include="Models\Bidder.cs" />
     <Compile Include="Models\Bids.cs" />
     <Compile Include="Models\Product.cs" />
@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sql1\DML-9.sql" />
-    <Content Include="Sql1\GruppArbeteBest.sql" />
+    <Content Include="Sql1\GruppArbeteBestOftheBest.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
