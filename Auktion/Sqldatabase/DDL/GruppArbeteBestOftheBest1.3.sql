@@ -98,7 +98,6 @@ GO
 CREATE TABLE AuctionHistory
 (
 Id INT IDENTITY(1,1) PRIMARY KEY,
-AuctionId INT,
 Name VARCHAR(50) NOT NULL,
 ProductId INT,
 Startdate DATE NOT NULL,
@@ -106,7 +105,6 @@ Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
 BuyNow DECIMAL(38,2) NOT NULL,
 FinalBid DECIMAL(38,2) NOT NULL,
-FOREIGN KEY (AuctionId) REFERENCES Auction(Id),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
 
