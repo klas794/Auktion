@@ -1,10 +1,16 @@
-﻿CREATE VIEW [List Of Customer Purchases] AS	
+﻿GO
+
+CREATE VIEW [Provision per month]
 AS
-SELECT SUM(SellPrice) FROM (
-SELECT FORMAT(Auction.EndDate, 'yyyy-MM') AS Month, MAX(Bids.Price) AS SellPrice FROM Auction
+SELECT Month, SUM(Commission) AS Commission FROM (
+SELECT FORMAT(Auction.EndDate, 'yyyy-MM') AS Month, MAX(Bids.Price) * Supplier.Commission AS Commission 
+	FROM Auction
 	INNER JOIN Bids ON Bids.AuctionId = Auction.Id
-	GROUP BY Auction.Id, FORMAT(Auction.EndDate, 'yyyy-MM'), Auction.EndDate
+	INNER JOIN Supplier ON Supplier.Id = Bids.BidderId
+	GROUP BY Auction.Id, FORMAT(Auction.EndDate, 'yyyy-MM'), Auction.EndDate, Supplier.Commission
 	HAVING Auction.EndDate <= GETDATE()
 	) a
 	GROUP BY a.Month
 GO
+
+--SELECT * FROM [Provision per month]

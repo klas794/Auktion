@@ -18,5 +18,5 @@ END
 
 GO
 
-DELETE FROM Auction WHERE Id = 2
+--DELETE FROM Auction WHERE Id = 2
 
