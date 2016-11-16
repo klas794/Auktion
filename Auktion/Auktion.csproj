@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Controllers\AuctionController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SupplierController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

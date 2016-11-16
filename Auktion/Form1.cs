@@ -16,9 +16,11 @@ namespace Auktion
     public partial class Form1 : Form
     {
         readonly AuctionController _auctionController;
+        readonly SupplierController _supplierController;
         public Form1()
         {
             _auctionController = new AuctionController();
+            _supplierController = new SupplierController();
             InitializeComponent();
         }
 
@@ -32,6 +34,20 @@ namespace Auktion
             lstAuctions.DataSource = _auctionController.Read();
             lstAuctions.DisplayMember = "Name";
             lstAuctions.ValueMember = "Id";
+
+            var supplierDataSource = _supplierController.Read();
+
+            lstSuppliers.DataSource = supplierDataSource;
+            lstSuppliers.DisplayMember = "Name";
+            lstSuppliers.ValueMember = "Id";
+
+            cboAuctionSupplier.DataSource = supplierDataSource;
+            cboAuctionSupplier.DisplayMember = "Name";
+            cboAuctionSupplier.ValueMember = "Id";
+
+            cboProductSupplier.DataSource = supplierDataSource;
+            cboProductSupplier.DisplayMember = "Name";
+            cboProductSupplier.ValueMember = "Id";
         }
 
         #region - Supplier Tab  -
@@ -122,9 +138,23 @@ namespace Auktion
 
             lblAuctionBegin.Text = "Start Date: " + auction.Startdate;
             lblAuctionEnd.Text = "End Date: " + auction.Enddate;
-            lblAuctionName.Text = auction.Product.Name;
+            lblAuctionName.Text = auction.Name;
             lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Name;
             lblAuctionStartPrice.Text = "OpeningPrice: " + auction.Startprice + "SEK";
+
+            lstAuctionBids.DataSource = auction.Bids.ToList();
+            lstAuctionBids.DisplayMember = "Date";
+            lstAuctionBids.ValueMember = "BidderId";
+        }
+
+
+        private void cboAuctionSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var supplier = cboAuctionSupplier.SelectedItem as Supplier;
+
+            cboAuctionProduct.DataSource = supplier.Product.ToList();
+            cboAuctionProduct.DisplayMember = "Name";
+            cboAuctionProduct.ValueMember = "Id";
         }
 
         private void btnAuctionCreate_Click(object sender, EventArgs e)
@@ -165,5 +195,15 @@ namespace Auktion
         }
 
         #endregion
+
+        private void lstAuctionBids_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string bidderFirstname = ((Bids)e.ListItem).Bidder.Firstname;
+            string bidderLastname = ((Bids)e.ListItem).Bidder.Lastname;
+            string bid = ((Bids)e.ListItem).Price.ToString();
+            string date = ((Bids)e.ListItem).Date.ToString();
+
+            e.Value = bid + "SEK | " + bidderFirstname + " " + bidderLastname + " | " + date;
+        }
     }
 }

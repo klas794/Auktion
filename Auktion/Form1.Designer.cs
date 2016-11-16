@@ -168,6 +168,10 @@
             this.panel22 = new System.Windows.Forms.Panel();
             this.txtAuctionOpeningPrice = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnAuctionSelectPicture = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.picAuctionPicture = new System.Windows.Forms.PictureBox();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -228,6 +232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // AuctionsPage
@@ -292,6 +297,7 @@
             // 
             // splitContainer4.Panel1
             // 
+            this.splitContainer4.Panel1.Controls.Add(this.picAuctionPicture);
             this.splitContainer4.Panel1.Controls.Add(this.lblAuctionStartPrice);
             this.splitContainer4.Panel1.Controls.Add(this.lblAuctionEnd);
             this.splitContainer4.Panel1.Controls.Add(this.lblAuctionBegin);
@@ -302,6 +308,8 @@
             // 
             // splitContainer4.Panel2
             // 
+            this.splitContainer4.Panel2.Controls.Add(this.textBox1);
+            this.splitContainer4.Panel2.Controls.Add(this.btnAuctionSelectPicture);
             this.splitContainer4.Panel2.Controls.Add(this.panel20);
             this.splitContainer4.Panel2.Controls.Add(this.btnAuctionCreate);
             this.splitContainer4.Panel2.Controls.Add(this.panel21);
@@ -374,6 +382,7 @@
             this.lstAuctionBids.Name = "lstAuctionBids";
             this.lstAuctionBids.Size = new System.Drawing.Size(380, 220);
             this.lstAuctionBids.TabIndex = 0;
+            this.lstAuctionBids.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.lstAuctionBids_Format);
             // 
             // panel20
             // 
@@ -393,8 +402,9 @@
             this.cboAuctionSupplier.FormattingEnabled = true;
             this.cboAuctionSupplier.Location = new System.Drawing.Point(7, 21);
             this.cboAuctionSupplier.Name = "cboAuctionSupplier";
-            this.cboAuctionSupplier.Size = new System.Drawing.Size(300, 26);
+            this.cboAuctionSupplier.Size = new System.Drawing.Size(294, 26);
             this.cboAuctionSupplier.TabIndex = 1;
+            this.cboAuctionSupplier.SelectedIndexChanged += new System.EventHandler(this.cboAuctionSupplier_SelectedIndexChanged);
             // 
             // label33
             // 
@@ -1749,6 +1759,34 @@
             this.label43.TabIndex = 0;
             this.label43.Text = "Opening Price";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // btnAuctionSelectPicture
+            // 
+            this.btnAuctionSelectPicture.Location = new System.Drawing.Point(19, 208);
+            this.btnAuctionSelectPicture.Name = "btnAuctionSelectPicture";
+            this.btnAuctionSelectPicture.Size = new System.Drawing.Size(108, 28);
+            this.btnAuctionSelectPicture.TabIndex = 10;
+            this.btnAuctionSelectPicture.Text = "Select Picture";
+            this.btnAuctionSelectPicture.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(144, 210);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(170, 24);
+            this.textBox1.TabIndex = 11;
+            // 
+            // picAuctionPicture
+            // 
+            this.picAuctionPicture.Location = new System.Drawing.Point(13, 109);
+            this.picAuctionPicture.Name = "picAuctionPicture";
+            this.picAuctionPicture.Size = new System.Drawing.Size(250, 144);
+            this.picAuctionPicture.TabIndex = 3;
+            this.picAuctionPicture.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1855,6 +1893,7 @@
             this.panel21.PerformLayout();
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAuctionPicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2001,6 +2040,10 @@
         private System.Windows.Forms.Panel panel22;
         private System.Windows.Forms.TextBox txtAuctionOpeningPrice;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnAuctionSelectPicture;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.PictureBox picAuctionPicture;
     }
 }
 

@@ -21,10 +21,10 @@ namespace Auktion.Controllers
 
         }
 
-        public List<Auction> Read()
+        public List<Product> Read()
         {
-            var auctions = _auctionModel.Auction.ToList();
-            return auctions;
+            var products = _auctionModel.Product.ToList();
+            return products;
         }
     }
 }
