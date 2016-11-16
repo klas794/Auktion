@@ -18,11 +18,11 @@ namespace Auktion
         //    return result;
         //}
 
-        //public List<Bidder> CustomerReport(DateTime startDate, DateTime endDate)
-        //{
-        //    var result = _auctionModel.Bidder.ToList();
-        //    return result;
-        //}
+        public List<Bidder> CustomerReport(DateTime startDate, DateTime endDate)
+        {
+            var result = _auctionModel.Bidder.ToList();
+            return result;
+        }
 
         //public List<SalesReportModel> SalesReport(DateTime startDate, DateTime endDate)
         //{

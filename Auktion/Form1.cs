@@ -20,7 +20,12 @@ namespace Auktion
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            PopulateFormWithData();
+        }
 
+        private void PopulateFormWithData()
+        {
+            
         }
 
         #region - Supplier Tab  -
@@ -105,9 +110,14 @@ namespace Auktion
 
         #region - Auctions -
 
-        private void treAuctions_AfterSelect(object sender, TreeViewEventArgs e)
+        private void lstAuctions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var index = lstAuctions.SelectedIndex;
 
+            lblAuctionBegin.Text = "Start Date: "; //Add Sellecteditem.Startdate
+            lblAuctionEnd.Text = "End Date: "; //Add Sellecteditem.Enddate
+            lblAuctionName.Text = ""; //Add Sellecteditem.Name
+            lblAuctionSupplier.Text = "Supplier: "; //Add Sellecteditem.Supplier
         }
 
         private void btnAuctionCreate_Click(object sender, EventArgs e)
@@ -131,7 +141,7 @@ namespace Auktion
             }
             else if (cboReports.Text == "Customer Report")
             {
-                //dgvReport.DataSource = reportHandler.CustomerReport(startDate, endDate);
+                dgvReport.DataSource = reportHandler.CustomerReport(startDate, endDate);
             }
             else if (cboReports.Text == "Ending Auctions Report")
             {

@@ -15,5 +15,15 @@ namespace Auktion.Controllers
         {
             _auctionModel = new AuctionModel();
         }
+
+        public void Create()
+        {
+
+        }
+
+        public void Read()
+        {
+
+        }
     }
 }
