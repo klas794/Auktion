@@ -106,6 +106,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
     <Content Include="Sqldatabase\DML\DML-9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest0.9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest1.0.sql" />

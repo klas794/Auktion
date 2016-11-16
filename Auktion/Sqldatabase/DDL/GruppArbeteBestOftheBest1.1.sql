@@ -1,3 +1,8 @@
+CREATE DATABASE Auctions
+GO
+
+USE Auctions
+GO
 
 CREATE TABLE Address
 (
