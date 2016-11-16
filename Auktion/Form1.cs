@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Auktion.Controllers;
+using Auktion.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +15,39 @@ namespace Auktion
 {
     public partial class Form1 : Form
     {
+        readonly AuctionController _auctionController;
+        readonly SupplierController _supplierController;
         public Form1()
         {
+            _auctionController = new AuctionController();
+            _supplierController = new SupplierController();
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            PopulateFormWithData();
+        }
 
+        private void PopulateFormWithData()
+        {
+            lstAuctions.DataSource = _auctionController.Read();
+            lstAuctions.DisplayMember = "Name";
+            lstAuctions.ValueMember = "Id";
+
+            var supplierDataSource = _supplierController.Read();
+
+            lstSuppliers.DataSource = supplierDataSource;
+            lstSuppliers.DisplayMember = "Name";
+            lstSuppliers.ValueMember = "Id";
+
+            cboAuctionSupplier.DataSource = supplierDataSource;
+            cboAuctionSupplier.DisplayMember = "Name";
+            cboAuctionSupplier.ValueMember = "Id";
+
+            cboProductSupplier.DataSource = supplierDataSource;
+            cboProductSupplier.DisplayMember = "Name";
+            cboProductSupplier.ValueMember = "Id";
         }
 
         #region - Supplier Tab  -
@@ -105,14 +132,42 @@ namespace Auktion
 
         #region - Auctions -
 
-        private void treAuctions_AfterSelect(object sender, TreeViewEventArgs e)
+        private void lstAuctions_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var auction = lstAuctions.SelectedItem as Auction;
 
+            lblAuctionBegin.Text = "Start Date: " + auction.Startdate;
+            lblAuctionEnd.Text = "End Date: " + auction.Enddate;
+            lblAuctionName.Text = auction.Name;
+            lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Name;
+            lblAuctionStartPrice.Text = "OpeningPrice: " + auction.Startprice + "SEK";
+
+            lstAuctionBids.DataSource = auction.Bids.ToList();
+            lstAuctionBids.DisplayMember = "Date";
+            lstAuctionBids.ValueMember = "BidderId";
+        }
+
+
+        private void cboAuctionSupplier_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var supplier = cboAuctionSupplier.SelectedItem as Supplier;
+
+            cboAuctionProduct.DataSource = supplier.Product.ToList();
+            cboAuctionProduct.DisplayMember = "Name";
+            cboAuctionProduct.ValueMember = "Id";
         }
 
         private void btnAuctionCreate_Click(object sender, EventArgs e)
         {
-
+            var result = _auctionController.Create(new Auction
+            {
+                ProductId = 1,
+                Name = txtAuctionName.Text,
+                Startdate = dtpAuctionStart.Value,
+                Enddate = dtpAuctionEnd.Value,
+                Startprice = decimal.Parse(txtAuctionOpeningPrice.Text),
+                BuyNow = decimal.Parse(txtAuctionBuyNow.Text),
+            });
         }
 
         #endregion
@@ -121,9 +176,34 @@ namespace Auktion
 
         private void btnReportCreate_Click(object sender, EventArgs e)
         {
+            var startDate = dtpReportStart.Value;
+            var endDate = dtpReportEnd.Value;
+            var reportHandler = new ReportHandler();
 
+            if (cboReports.Text == "Sales Report")
+            {
+                //reportHandler.SalesReport(startDate, endDate);
+            }
+            else if (cboReports.Text == "Customer Report")
+            {
+                dgvReport.DataSource = reportHandler.CustomerReport(startDate, endDate);
+            }
+            else if (cboReports.Text == "Ending Auctions Report")
+            {
+                //dgvReport.DataSource = reportHandler.EndingAuctionsReport(startDate, endDate);
+            }
         }
 
         #endregion
+
+        private void lstAuctionBids_Format(object sender, ListControlConvertEventArgs e)
+        {
+            string bidderFirstname = ((Bids)e.ListItem).Bidder.Firstname;
+            string bidderLastname = ((Bids)e.ListItem).Bidder.Lastname;
+            string bid = ((Bids)e.ListItem).Price.ToString();
+            string date = ((Bids)e.ListItem).Date.ToString();
+
+            e.Value = bid + "SEK | " + bidderFirstname + " " + bidderLastname + " | " + date;
+        }
     }
 }

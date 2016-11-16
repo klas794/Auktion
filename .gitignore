@@ -245,3 +245,10 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 Auktion.sln
+*.csproj
+*.csproj
+*.csproj
+*.csproj
+Auktion/Auktion.csproj
+*.csproj
+*.csproj

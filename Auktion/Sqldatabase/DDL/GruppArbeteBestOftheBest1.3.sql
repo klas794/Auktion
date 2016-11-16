@@ -1,33 +1,33 @@
-CREATE DATABASE Auktion;
-GO
-USE Auktion
-GO
 
 CREATE TABLE Address
 (
-Zip CHAR(5) NOT NULL PRIMARY KEY,
-City NVARCHAR(50) NOT NULL
+Id INT IDENTITY(1,1) PRIMARY KEY,
+Zip CHAR(5) NOT NULL,
+City NVARCHAR(50) NOT NULL,
+Street NVARCHAR(50) NOT NULL,
+Country NVARCHAR(50) NOT NULL
 );
 
-INSERT INTO Address VALUES ('60229','Norrköping');
-INSERT INTO Address VALUES ('60250','Norrköping');
-INSERT INTO Address VALUES ('60339','Norrköping');
+INSERT INTO Address VALUES ('60229','Norrköping','Hantverkaregatan 23','Sweden');
+INSERT INTO Address VALUES ('60250','Norrköping','Smedjegatan 52','Sweden');
+INSERT INTO Address VALUES ('60339','Norrköping','Garvaregatan 72','Sweden');
 
 GO
 
 CREATE TABLE Supplier
 (
 Id INT IDENTITY(1,1) PRIMARY KEY,
-Name NVARCHAR(50) NOT NULL,
+Firstname NVARCHAR(50) NOT NULL,
+Lastname NVARCHAR(50) NOT NULL,
 Email NVARCHAR(50) NOT NULL,
 Phone CHAR(10) NOT NULL,
-Street NVARCHAR(50) NOT NULL,
-Zip CHAR(5) NOT NULL,
-FOREIGN KEY (Zip) REFERENCES Address(Zip)
+AdressId INT NOT NULL,
+Commission DECIMAL(3,2) NOT NULL,
+FOREIGN KEY (AdressId) REFERENCES Address(Id)
 );
 
-INSERT INTO Supplier VALUES ('Erik Hammar','Erik.Hammar@lev.se','0762114822','Hantverkaregatan 23','60229');
-INSERT INTO Supplier VALUES ('Björn Gustafsson','Bjorn.Gustafsson@lev.se','0762444832', 'Svarvaregatan 12','60250');
+INSERT INTO Supplier VALUES ('Erik', 'Hammar','Erik.Hammar@lev.se','0762114822',1,0.25);
+INSERT INTO Supplier VALUES ('Björn', 'Gustafsson','Bjorn.Gustafsson@lev.se','0762444832',2,0.25);
 
 GO
 
@@ -45,16 +45,18 @@ INSERT INTO Product VALUES ('Playstation','Spelkonsol med två kontroller och fem
 CREATE TABLE Auction
 (
 Id INT PRIMARY KEY IDENTITY(1,1),
+Name VARCHAR(50) NOT NULL,
 ProductId INT,
 Startdate DATE NOT NULL,
 Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
-BuyNow INT NOT NULL,
+BuyNow DECIMAL(38,2) NOT NULL,
+Photo VARBINARY(MAX),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
-INSERT INTO Auction VALUES (1,'2016-09-23','2016-09-23',900,1599);
-INSERT INTO Auction VALUES (1,'2016-10-23','2016-11-01',9,199);
-INSERT INTO Auction VALUES (1,'2016-10-25','2016-11-01',9,199);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-09-23','2016-09-23',900,1599,0);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-23','2016-11-01',9,199,0);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,0);
 
 GO
 CREATE TABLE Bidder
@@ -66,13 +68,11 @@ SSN CHAR(10) NOT NULL,
 Phone CHAR(10) NOT NULL,
 Email NVARCHAR(50) NOT NULL,
 Username NVARCHAR(50) NOT NULL,
-Password NVARCHAR(50) NOT NULL,
-Street NVARCHAR(50) NOT NULL,
-Zip CHAR(5) NOT NULL,
-FOREIGN KEY (Zip) REFERENCES Address(Zip)
+AddressId INT NOT NULL,
+FOREIGN KEY (AddressId) REFERENCES Address(Id)
 );
 
-INSERT INTO Bidder VALUES ('Arya','Stark','8505251987','0737123123','Arya.Stark@winterfell.se','NoOne','Hejhej','Smedjegatan 27','60339')
+INSERT INTO Bidder VALUES ('Arya','Stark','8505251987','0737123123','Arya.Stark@winterfell.se','NoOne',3)
 
 GO
 CREATE TABLE Bids
@@ -99,15 +99,18 @@ CREATE TABLE AuctionHistory
 (
 Id INT IDENTITY(1,1) PRIMARY KEY,
 AuctionId INT,
+Name VARCHAR(50) NOT NULL,
 ProductId INT,
 Startdate DATE NOT NULL,
 Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
-BuyNow INT NOT NULL,
+BuyNow DECIMAL(38,2) NOT NULL,
+FinalBid DECIMAL(38,2) NOT NULL,
 FOREIGN KEY (AuctionId) REFERENCES Auction(Id),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
 
-INSERT INTO AuctionHistory VALUES (3,1,'2016-10-25','2016-11-01',9,199)
+INSERT INTO AuctionHistory VALUES (3,'PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,27)
 
 GO
+
