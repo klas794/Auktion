@@ -70,7 +70,7 @@
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Auction.cs" />
     <Compile Include="Models\AuctionHistory.cs" />
-    <Compile Include="Models\AuctionModel.cs" />
+    <Compile Include="Controllers\AuctionModel.cs" />
     <Compile Include="Models\Bidder.cs" />
     <Compile Include="Models\Bids.cs" />
     <Compile Include="Models\Product.cs" />
@@ -107,8 +107,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Sql1\DML-9.sql" />
-    <Content Include="Sql1\GruppArbeteBestOftheBest.sql" />
+    <Content Include="Sqldatabase\DML\DML-9.sql" />
+    <Content Include="Sqldatabase\DDL\BestOftheBest0.9.sql" />
+    <Content Include="Sqldatabase\DDL\BestOftheBest1.0.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
