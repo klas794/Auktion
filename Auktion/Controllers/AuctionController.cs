@@ -1,10 +1,7 @@
 ﻿using Auktion.Models;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Auktion.Controllers
 {
@@ -19,17 +16,15 @@ namespace Auktion.Controllers
 
         public List<ValidationResult> Create(Auction auction)
         {
-            var context = new ValidationContext(auction, null, null);
-            var result = new List<ValidationResult>();
-            var valid = Validator.TryValidateObject(auction, context, result, true);
+            var validation = Validation.DbValidate(auction);
 
-            if (valid)
+            if (validation.Item1)
             {
                 _auctionModel.Auction.Add(auction);
                 _auctionModel.SaveChanges();
             }
 
-            return result;
+            return validation.Item2;
         }
 
         public List<Auction> Read()
@@ -37,5 +32,42 @@ namespace Auktion.Controllers
             var auctions = _auctionModel.Auction.ToList();
             return auctions;
         }
+
+        public List<ValidationResult> Update(Auction auction)
+        {
+            var updateAuction = _auctionModel.Auction.Find(auction.Id);
+
+            updateAuction.ProductId = auction.ProductId;
+            updateAuction.Name = auction.Name;
+            updateAuction.Startprice = auction.Startprice;
+            updateAuction.BuyNow = auction.BuyNow;
+            updateAuction.Startdate = auction.Startdate;
+            updateAuction.Enddate = auction.Enddate;
+            //updateAuction.Photo = auction.Photo;
+
+            var validation = Validation.DbValidate(updateAuction);
+
+            if (validation.Item1)
+            {
+                _auctionModel.SaveChanges();
+            }
+
+            return validation.Item2;
+        }
+        public bool Delete(Auction auction)
+        {
+            try
+            {
+                _auctionModel.Auction.Remove(auction);
+                _auctionModel.SaveChanges();
+
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
     }
 }

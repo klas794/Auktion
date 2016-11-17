@@ -128,7 +128,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.panel15 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
-            this.txtSupplierCommision = new System.Windows.Forms.TextBox();
+            this.txtSupplierCommission = new System.Windows.Forms.TextBox();
             this.btnRegisterProduct = new System.Windows.Forms.Button();
             this.btnCreateAuction = new System.Windows.Forms.Button();
             this.btnSupplierAdd = new System.Windows.Forms.Button();
@@ -1326,7 +1326,7 @@
             this.panel15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel15.Controls.Add(this.label21);
-            this.panel15.Controls.Add(this.txtSupplierCommision);
+            this.panel15.Controls.Add(this.txtSupplierCommission);
             this.panel15.Location = new System.Drawing.Point(5, 165);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(682, 51);
@@ -1343,12 +1343,12 @@
             // 
             // txtSupplierCommision
             // 
-            this.txtSupplierCommision.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtSupplierCommission.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSupplierCommision.Location = new System.Drawing.Point(6, 21);
-            this.txtSupplierCommision.Name = "txtSupplierCommision";
-            this.txtSupplierCommision.Size = new System.Drawing.Size(673, 24);
-            this.txtSupplierCommision.TabIndex = 2;
+            this.txtSupplierCommission.Location = new System.Drawing.Point(6, 21);
+            this.txtSupplierCommission.Name = "txtSupplierCommision";
+            this.txtSupplierCommission.Size = new System.Drawing.Size(673, 24);
+            this.txtSupplierCommission.TabIndex = 2;
             // 
             // btnRegisterProduct
             // 
@@ -1984,7 +1984,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txtSupplierCommision;
+        private System.Windows.Forms.TextBox txtSupplierCommission;
         private System.Windows.Forms.Button btnRegisterProduct;
         private System.Windows.Forms.Button btnCreateAuction;
         private System.Windows.Forms.Button btnSupplierAdd;

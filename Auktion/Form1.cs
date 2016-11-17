@@ -45,17 +45,38 @@ namespace Auktion
 
         private void btnSupplierAdd_Click(object sender, EventArgs e)
         {
+            var result = _supplierController.Create(ReadSupplierForm());
 
+            if (result.Count > 0)
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstSuppliers.DataSource = _supplierController.Read();
         }
 
         private void btnSupplierEdit_Click(object sender, EventArgs e)
         {
+            var result = _supplierController.Update(ReadSupplierForm());
 
+            if (result.Count > 0)
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstSuppliers.DataSource = _supplierController.Read();
         }
 
         private void btnSupplierDelete_Click(object sender, EventArgs e)
         {
+            var result = _supplierController.Delete(lstSuppliers.SelectedItem as Supplier);
 
+            if (!result)
+            {
+                MessageBox.Show("Could not Delete Selected Supplier");
+            }
+
+            lstSuppliers.DataSource = _supplierController.Read();
         }
 
         private void lstSuppliers_SelectedIndexChanged(object sender, EventArgs e)
@@ -64,7 +85,7 @@ namespace Auktion
 
             txtSupplierFirstname.Text = supplier.Firstname;
             txtSupplierLastname.Text = supplier.Lastname;
-            txtSupplierCommision.Text = (supplier.Commission * 100) + "%";
+            txtSupplierCommission.Text = (supplier.Commission * 100) + "%";
             txtSupplierStreet.Text = supplier.Address.Street;
             txtSupplierZip.Text = supplier.Address.Zip;
             txtSupplierCity.Text = supplier.Address.City;
@@ -88,16 +109,7 @@ namespace Auktion
 
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
-            var product = new Product
-            {
-                Name = txtProductName.Text,
-                Description = txtProductDescription.Text,
-                SupplyId = (cboProductSupplier.SelectedItem as Supplier).Id,
-                Condition = (Product.Conditions)cboProductCondition.SelectedItem
-            };
-
-
-            var result = _productController.Create(product);
+            var result = _productController.Create(ReadProductForm());
 
             if (result.Count > 0)
             {
@@ -108,15 +120,9 @@ namespace Auktion
         }
         private void btnProductEdit_Click(object sender, EventArgs e)
         {
-            var id = (int)lstProducts.SelectedValue;
-            var name = txtProductName.Text;
-            var supplyId = (int)cboProductSupplier.SelectedValue;
-            var description = txtProductDescription.Text;
-            var condition = (Product.Conditions)cboProductCondition.SelectedItem;
+            var result = _productController.Update(ReadProductForm());
 
-            var result = _productController.Update(id,name,supplyId,description,condition);
-
-            if(result.Count > 0)
+            if (result.Count > 0)
             {
                 MessageBox.Show(string.Join(Environment.NewLine,result));
             }
@@ -143,7 +149,7 @@ namespace Auktion
             cboProductSupplier.SelectedValue = product.Supplier.Id;
             txtProductName.Text = product.Name;
             txtProductDescription.Text = product.Description;
-            cboProductCondition.Text = product.Condition.ToString(); ;
+            cboProductCondition.Text = product.Condition.ToString();
         }
 
         #endregion
@@ -152,17 +158,38 @@ namespace Auktion
 
         private void btnBidderAdd_Click(object sender, EventArgs e)
         {
+            var result = _bidderController.Create(ReadBidderForm());
 
+            if (result.Count > 0)
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstBidders.DataSource = _bidderController.Read();
         }
 
         private void btnBidderEdit_Click(object sender, EventArgs e)
         {
+            var result = _bidderController.Update(ReadBidderForm());
 
+            if (result.Count > 0)
+            {
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstBidders.DataSource = _bidderController.Read();
         }
 
         private void btnBidderDelete_Click(object sender, EventArgs e)
         {
+            var result = _bidderController.Delete(lstBidders.SelectedItem as Bidder);
 
+            if (!result)
+            {
+                MessageBox.Show("Could not Delete Selected Product");
+            }
+
+            lstBidders.DataSource = _bidderController.Read();
         }
 
         private void lstBidders_SelectedIndexChanged(object sender, EventArgs e)
@@ -226,15 +253,14 @@ namespace Auktion
         }
         private void btnAuctionCreate_Click(object sender, EventArgs e)
         {
-            var result = _auctionController.Create(new Auction
+            var result = _auctionController.Create(ReadAuctionForm());
+
+            if (result.Count > 0)
             {
-                ProductId = 1,
-                Name = txtAuctionName.Text,
-                Startdate = dtpAuctionStart.Value,
-                Enddate = dtpAuctionEnd.Value,
-                Startprice = decimal.Parse(txtAuctionOpeningPrice.Text),
-                BuyNow = decimal.Parse(txtAuctionBuyNow.Text),
-            });
+                MessageBox.Show(string.Join(Environment.NewLine, result));
+            }
+
+            lstAuctions.DataSource = _auctionController.Read();
         }
 
         #endregion
@@ -263,6 +289,7 @@ namespace Auktion
 
         #endregion
 
+        #region - FormData -
         private void PopulateFormWithData()
         {
             lstAuctions.DataSource = _auctionController.Read();
@@ -293,5 +320,74 @@ namespace Auktion
 
             cboProductCondition.DataSource = Enum.GetValues(typeof(Product.Conditions));
         }
+        private Supplier ReadSupplierForm()
+        {
+            var address = new Address
+            {
+                Street = txtSupplierStreet.Text,
+                Zip = txtSupplierZip.Text,
+                City = txtSupplierCity.Text,
+                Country = txtSupplierCountry.Text
+            };
+
+            var comission = decimal.Parse(txtSupplierCommission.Text.Substring(0, txtSupplierCommission.Text.IndexOf('%') - 1));
+            return new Supplier
+            {
+                Id = (int)lstSuppliers.SelectedValue,
+                Firstname = txtSupplierFirstname.Text,
+                Lastname = txtSupplierLastname.Text,
+                Commission = comission / 100,
+                Email = txtSupplierEmail.Text,
+                Phone = txtSupplierPhoneNumber.Text,
+                Address = address
+            };
+        }
+        private Product ReadProductForm()
+        {
+            return new Product
+            {
+                Id = (int)lstProducts.SelectedValue,
+                SupplyId = (int)lstProducts.SelectedValue,
+                Name = txtProductName.Text,
+                Description = txtProductDescription.Text,
+                Condition = (Product.Conditions)cboProductCondition.SelectedItem,
+            };
+        }
+
+        private Bidder ReadBidderForm()
+        {
+            var address = new Address
+            {
+                Street = txtBidderStreet.Text,
+                Zip = txtBidderZip.Text,
+                City = txtBidderCity.Text,
+                Country = txtBidderCountry.Text
+            };
+            return new Bidder
+            {
+                Id = (int)lstBidders.SelectedValue,
+                Firstname = txtBidderFirstname.Text,
+                Lastname = txtBidderLastname.Text,
+                Username = txtBidderUsername.Text,
+                Email = txtBidderEmail.Text,
+                Phone = txtBidderPhone.Text,
+                Address = address
+            };
+        }
+        
+        private Auction ReadAuctionForm()
+        {
+            return new Auction
+            {
+                ProductId = (int)cboAuctionProduct.SelectedValue,
+                Name = txtAuctionName.Text,
+                Startprice = decimal.Parse(txtAuctionOpeningPrice.Text),
+                BuyNow = decimal.Parse(txtAuctionBuyNow.Text),
+                Startdate = dtpAuctionStart.Value,
+                Enddate = dtpAuctionEnd.Value
+            };
+        }
+
+        #endregion
     }
 }

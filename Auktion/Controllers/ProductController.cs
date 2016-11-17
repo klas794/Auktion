@@ -31,15 +31,14 @@ namespace Auktion.Controllers
             var products = _auctionModel.Product.ToList();
             return products;
         }
-        public List<ValidationResult> Update(int id, string name, int supplyId, string description, Product.Conditions condition)
+        public List<ValidationResult> Update(Product product)
         {
-            var oldProduct = _auctionModel.Product.Where(x => x.Id == id).Single();
-            var updateProduct = _auctionModel.Product.Find(oldProduct.Id);
+            var updateProduct = _auctionModel.Product.Find(product.Id);
 
-            updateProduct.Name = name;
-            updateProduct.SupplyId = supplyId;
-            updateProduct.Description = description;
-            updateProduct.Condition = condition;
+            updateProduct.SupplyId = product.SupplyId;
+            updateProduct.Name = product.Name;
+            updateProduct.Description = product.Description;
+            updateProduct.Condition = product.Condition;
 
             var validation = Validation.DbValidate(updateProduct);
 
