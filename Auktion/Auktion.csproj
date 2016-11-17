@@ -114,6 +114,11 @@
   <ItemGroup>
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.3.sql" />
+    <Content Include="Sqldatabase\DML\1_AddProduct.sql" />
+    <Content Include="Sqldatabase\DML\2_CreateAuction.sql" />
+    <Content Include="Sqldatabase\DML\3_ListCurrentAuctions.sql" />
+    <Content Include="Sqldatabase\DML\4_ShowBiddingHistory.sql" />
+    <Content Include="Sqldatabase\DML\5_ShowAuctions.sql" />
     <Content Include="Sqldatabase\DML\DML-8.sql" />
     <Content Include="Sqldatabase\DML\DML-9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest0.9.sql" />
