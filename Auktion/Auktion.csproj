@@ -93,7 +93,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="Chen\Grupp6Pdf.pdf" />
+    <None Include="Chen\Grupp6.vsdx" />
     <None Include="Chen\Relationsmodellen.vsdx" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -107,7 +107,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
