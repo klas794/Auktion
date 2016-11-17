@@ -172,6 +172,9 @@
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.lstReport = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnMonthlyRevenue = new System.Windows.Forms.Button();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -1341,12 +1344,12 @@
             this.label21.TabIndex = 0;
             this.label21.Text = "Comission Percentage";
             // 
-            // txtSupplierCommision
+            // txtSupplierCommission
             // 
             this.txtSupplierCommission.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSupplierCommission.Location = new System.Drawing.Point(6, 21);
-            this.txtSupplierCommission.Name = "txtSupplierCommision";
+            this.txtSupplierCommission.Name = "txtSupplierCommission";
             this.txtSupplierCommission.Size = new System.Drawing.Size(673, 24);
             this.txtSupplierCommission.TabIndex = 2;
             // 
@@ -1682,6 +1685,8 @@
             // 
             // splitContainer6.Panel1
             // 
+            this.splitContainer6.Panel1.Controls.Add(this.btnMonthlyRevenue);
+            this.splitContainer6.Panel1.Controls.Add(this.button1);
             this.splitContainer6.Panel1.Controls.Add(this.cboReports);
             this.splitContainer6.Panel1.Controls.Add(this.label30);
             this.splitContainer6.Panel1.Controls.Add(this.label29);
@@ -1693,6 +1698,7 @@
             // 
             // splitContainer6.Panel2
             // 
+            this.splitContainer6.Panel2.Controls.Add(this.lstReport);
             this.splitContainer6.Panel2.Controls.Add(this.dgvReport);
             this.splitContainer6.Panel2.Controls.Add(this.label28);
             this.splitContainer6.Panel2MinSize = 0;
@@ -1708,7 +1714,7 @@
             "Sales Report",
             "Customer Report",
             "Ending Auctions Report"});
-            this.cboReports.Location = new System.Drawing.Point(175, 55);
+            this.cboReports.Location = new System.Drawing.Point(10, 55);
             this.cboReports.Name = "cboReports";
             this.cboReports.Size = new System.Drawing.Size(188, 21);
             this.cboReports.TabIndex = 5;
@@ -1716,7 +1722,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(611, 58);
+            this.label30.Location = new System.Drawing.Point(446, 58);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(20, 13);
             this.label30.TabIndex = 4;
@@ -1725,7 +1731,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(369, 58);
+            this.label29.Location = new System.Drawing.Point(204, 58);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(30, 13);
             this.label29.TabIndex = 3;
@@ -1745,7 +1751,7 @@
             // 
             // btnReportCreate
             // 
-            this.btnReportCreate.Location = new System.Drawing.Point(843, 54);
+            this.btnReportCreate.Location = new System.Drawing.Point(678, 54);
             this.btnReportCreate.Name = "btnReportCreate";
             this.btnReportCreate.Size = new System.Drawing.Size(75, 20);
             this.btnReportCreate.TabIndex = 0;
@@ -1755,14 +1761,14 @@
             // 
             // dtpReportEnd
             // 
-            this.dtpReportEnd.Location = new System.Drawing.Point(637, 54);
+            this.dtpReportEnd.Location = new System.Drawing.Point(472, 54);
             this.dtpReportEnd.Name = "dtpReportEnd";
             this.dtpReportEnd.Size = new System.Drawing.Size(200, 20);
             this.dtpReportEnd.TabIndex = 2;
             // 
             // dtpReportStart
             // 
-            this.dtpReportStart.Location = new System.Drawing.Point(405, 54);
+            this.dtpReportStart.Location = new System.Drawing.Point(240, 54);
             this.dtpReportStart.Name = "dtpReportStart";
             this.dtpReportStart.Size = new System.Drawing.Size(200, 20);
             this.dtpReportStart.TabIndex = 1;
@@ -1791,6 +1797,33 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // lstReport
+            // 
+            this.lstReport.FormattingEnabled = true;
+            this.lstReport.Location = new System.Drawing.Point(0, 114);
+            this.lstReport.Name = "lstReport";
+            this.lstReport.Size = new System.Drawing.Size(1064, 342);
+            this.lstReport.TabIndex = 4;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(793, 53);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnMonthlyRevenue
+            // 
+            this.btnMonthlyRevenue.Location = new System.Drawing.Point(883, 52);
+            this.btnMonthlyRevenue.Name = "btnMonthlyRevenue";
+            this.btnMonthlyRevenue.Size = new System.Drawing.Size(88, 35);
+            this.btnMonthlyRevenue.TabIndex = 6;
+            this.btnMonthlyRevenue.Text = "Monthly revenue";
+            this.btnMonthlyRevenue.UseVisualStyleBackColor = true;
+            this.btnMonthlyRevenue.Click += new System.EventHandler(this.btnMonthlyRevenue_Click);
             // 
             // Form1
             // 
@@ -2049,6 +2082,9 @@
         private System.Windows.Forms.Button btnAuctionSelectPicture;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox picAuctionPicture;
+        private System.Windows.Forms.Button btnMonthlyRevenue;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ListBox lstReport;
     }
 }
 

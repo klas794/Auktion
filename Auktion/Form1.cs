@@ -1,6 +1,8 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
 using System;
+using System.Data.Entity.SqlServer;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -389,5 +391,18 @@ namespace Auktion
         }
 
         #endregion
+
+        private void btnMonthlyRevenue_Click(object sender, EventArgs e)
+        {
+            lstReport.DataSource = _auctionController.Read()
+                .Where(x => x.Enddate <= DateTime.Now)                
+                .Select(x => new {
+                    Revenue = x.Bids.Max(y=> y.Price) * x.Product.Supplier.Commission,
+                    Month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(x.Enddate.Month),
+                    Enddate = x.Enddate
+                })
+                .GroupBy(x => new { Year = x.Enddate.Year,  x.Enddate.Month } ).ToList()
+                .Select(x => x.Select(y=> y.Month).FirstOrDefault() + ": " + x.Sum(y => y.Revenue) + " kr").ToList();
+        }
     }
 }
