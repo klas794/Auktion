@@ -275,9 +275,9 @@ namespace Auktion
             var endDate = dtpReportEnd.Value;
             var reportHandler = new ReportHandler();
 
-            if (cboReports.Text == "Sales Report")
+            if (cboReports.Text == "Monthly Revenue")
             {
-                //reportHandler.SalesReport(startDate, endDate);
+                lstReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
             }
             else if (cboReports.Text == "Customer Report")
             {
@@ -294,6 +294,9 @@ namespace Auktion
         #region - FormData -
         private void PopulateFormWithData()
         {
+            dtpReportStart.Value = dtpReportEnd.Value.AddYears(-1);
+            dtpAuctionEnd.Value = dtpAuctionStart.Value.AddDays(14);
+         
             lstAuctions.DataSource = _auctionController.Read();
             lstAuctions.DisplayMember = "Name";
             lstAuctions.ValueMember = "Id";
@@ -391,18 +394,5 @@ namespace Auktion
         }
 
         #endregion
-
-        private void btnMonthlyRevenue_Click(object sender, EventArgs e)
-        {
-            lstReport.DataSource = _auctionController.Read()
-                .Where(x => x.Enddate <= DateTime.Now)                
-                .Select(x => new {
-                    Revenue = x.Bids.Max(y=> y.Price) * x.Product.Supplier.Commission,
-                    Month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(x.Enddate.Month),
-                    Enddate = x.Enddate
-                })
-                .GroupBy(x => new { Year = x.Enddate.Year,  x.Enddate.Month } ).ToList()
-                .Select(x => x.Select(y=> y.Month).FirstOrDefault() + ": " + x.Sum(y => y.Revenue) + " kr").ToList();
-        }
     }
 }

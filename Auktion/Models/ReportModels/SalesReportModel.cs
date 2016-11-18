@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Auktion.Models.ReportModels
 {
-    class SalesReportModel
+    public class SalesReportModel
     {
         public DateTime Date { get; set; }
         public string Auction { get; set; }

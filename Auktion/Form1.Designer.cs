@@ -162,6 +162,7 @@
             this.MainTabController = new System.Windows.Forms.TabControl();
             this.ReportsPage = new System.Windows.Forms.TabPage();
             this.splitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.label44 = new System.Windows.Forms.Label();
             this.cboReports = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -169,12 +170,10 @@
             this.btnReportCreate = new System.Windows.Forms.Button();
             this.dtpReportEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpReportStart = new System.Windows.Forms.DateTimePicker();
+            this.lstReport = new System.Windows.Forms.ListBox();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.lstReport = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnMonthlyRevenue = new System.Windows.Forms.Button();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -1685,8 +1684,7 @@
             // 
             // splitContainer6.Panel1
             // 
-            this.splitContainer6.Panel1.Controls.Add(this.btnMonthlyRevenue);
-            this.splitContainer6.Panel1.Controls.Add(this.button1);
+            this.splitContainer6.Panel1.Controls.Add(this.label44);
             this.splitContainer6.Panel1.Controls.Add(this.cboReports);
             this.splitContainer6.Panel1.Controls.Add(this.label30);
             this.splitContainer6.Panel1.Controls.Add(this.label29);
@@ -1706,12 +1704,21 @@
             this.splitContainer6.SplitterDistance = 90;
             this.splitContainer6.TabIndex = 0;
             // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(10, 38);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(72, 13);
+            this.label44.TabIndex = 7;
+            this.label44.Text = "Select Report";
+            // 
             // cboReports
             // 
             this.cboReports.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboReports.FormattingEnabled = true;
             this.cboReports.Items.AddRange(new object[] {
-            "Sales Report",
+            "Monthly Revenue",
             "Customer Report",
             "Ending Auctions Report"});
             this.cboReports.Location = new System.Drawing.Point(10, 55);
@@ -1773,6 +1780,14 @@
             this.dtpReportStart.Size = new System.Drawing.Size(200, 20);
             this.dtpReportStart.TabIndex = 1;
             // 
+            // lstReport
+            // 
+            this.lstReport.FormattingEnabled = true;
+            this.lstReport.Location = new System.Drawing.Point(0, 114);
+            this.lstReport.Name = "lstReport";
+            this.lstReport.Size = new System.Drawing.Size(1064, 342);
+            this.lstReport.TabIndex = 4;
+            // 
             // dgvReport
             // 
             this.dgvReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1797,33 +1812,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // lstReport
-            // 
-            this.lstReport.FormattingEnabled = true;
-            this.lstReport.Location = new System.Drawing.Point(0, 114);
-            this.lstReport.Name = "lstReport";
-            this.lstReport.Size = new System.Drawing.Size(1064, 342);
-            this.lstReport.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(793, 53);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnMonthlyRevenue
-            // 
-            this.btnMonthlyRevenue.Location = new System.Drawing.Point(883, 52);
-            this.btnMonthlyRevenue.Name = "btnMonthlyRevenue";
-            this.btnMonthlyRevenue.Size = new System.Drawing.Size(88, 35);
-            this.btnMonthlyRevenue.TabIndex = 6;
-            this.btnMonthlyRevenue.Text = "Monthly revenue";
-            this.btnMonthlyRevenue.UseVisualStyleBackColor = true;
-            this.btnMonthlyRevenue.Click += new System.EventHandler(this.btnMonthlyRevenue_Click);
             // 
             // Form1
             // 
@@ -2082,9 +2070,8 @@
         private System.Windows.Forms.Button btnAuctionSelectPicture;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox picAuctionPicture;
-        private System.Windows.Forms.Button btnMonthlyRevenue;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ListBox lstReport;
+        private System.Windows.Forms.Label label44;
     }
 }
 
