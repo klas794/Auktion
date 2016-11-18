@@ -171,7 +171,6 @@
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.txtProductPhotoPath = new System.Windows.Forms.TextBox();
             this.btnProductSelectPicture = new System.Windows.Forms.Button();
             this.picProductPhoto = new System.Windows.Forms.PictureBox();
             this.AuctionsPage.SuspendLayout();
@@ -1040,7 +1039,6 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.picProductPhoto);
-            this.splitContainer5.Panel2.Controls.Add(this.txtProductPhotoPath);
             this.splitContainer5.Panel2.Controls.Add(this.btnProductSelectPicture);
             this.splitContainer5.Panel2.Controls.Add(this.panel14);
             this.splitContainer5.Panel2.Controls.Add(this.panel16);
@@ -1792,13 +1790,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Image Files|*.jpeg;*.jpg;*.png";
             // 
-            // txtProductPhotoPath
-            // 
-            this.txtProductPhotoPath.Location = new System.Drawing.Point(267, 433);
-            this.txtProductPhotoPath.Name = "txtProductPhotoPath";
-            this.txtProductPhotoPath.Size = new System.Drawing.Size(320, 24);
-            this.txtProductPhotoPath.TabIndex = 17;
-            // 
             // btnProductSelectPicture
             // 
             this.btnProductSelectPicture.Location = new System.Drawing.Point(11, 279);
@@ -2075,7 +2066,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox picAuctionPicture;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.TextBox txtProductPhotoPath;
         private System.Windows.Forms.Button btnProductSelectPicture;
         private System.Windows.Forms.PictureBox picProductPhoto;
     }
