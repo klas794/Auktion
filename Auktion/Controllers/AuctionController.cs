@@ -45,7 +45,6 @@ namespace Auktion.Controllers
             updateAuction.BuyNow = auction.BuyNow;
             updateAuction.Startdate = auction.Startdate;
             updateAuction.Enddate = auction.Enddate;
-            //updateAuction.Photo = auction.Photo;
 
             var validation = Validation.DbValidate(updateAuction);
 

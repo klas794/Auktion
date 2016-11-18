@@ -13,12 +13,18 @@ namespace Auktion
     {
         AuctionModel _auctionModel = new AuctionModel();
         AuctionController _auctionController = new AuctionController();
-        //public List<Auction> EndingAuctionsReport(DateTime startDate, DateTime endDate)
-        //{
 
-        //    var result = _auctionModel.Auction.Where(x => x.Enddate.Ticks > startDate.Ticks && x.Enddate.Ticks < endDate.Ticks).ToList();
-        //    return result;
-        //}
+        public object EndingAuctionsReport(DateTime startDate, DateTime endDate)
+        {
+            var result = _auctionController.Read()
+               .Where(x => x.Enddate <= endDate && x.Enddate >= startDate)
+               .Select(x => new
+               {
+                   Name = x.Name,
+                   Revenue = x.Bids.Max(y => y.Price) * x.Product.Supplier.Commission,
+               }).ToList();
+            return result;
+        }
 
 
         public object MonthlyRevenue(DateTime startDate, DateTime endDate)
@@ -39,7 +45,7 @@ namespace Auktion
 
         public object BidderReport()
         {
-            var tupleList = new List<object>();
+            var bidderReport = new List<object>();
             var winners = _auctionModel.AuctionHistory.Select(ah => ah.BidderId).Distinct().ToList();
 
             foreach (var winner in winners)
@@ -48,10 +54,10 @@ namespace Auktion
                 var name = _auctionModel.AuctionHistory.Where(a => a.Id == winner)
                     .Select(x => string.Concat(x.Bidder.Firstname, " ", x.Bidder.Lastname)).FirstOrDefault();
 
-                tupleList.Add(new { Name = name, Payed = totalPayed });
+                bidderReport.Add(new { Name = name, Payed = totalPayed });
                 
             }
-            return tupleList;
+            return bidderReport;
         }
     }
 }

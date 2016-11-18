@@ -1,6 +1,8 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
 using System;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -106,6 +108,12 @@ namespace Auktion
         #endregion
 
         #region - Product Tab -
+        private void btnProductSelectPicture_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.ShowDialog();
+            picProductPhoto.Image = new Bitmap(openFileDialog1.FileName);
+            txtProductPhotoPath.Text = openFileDialog1.FileName;
+        }
 
         private void btnProductAdd_Click(object sender, EventArgs e)
         {
@@ -150,6 +158,7 @@ namespace Auktion
             txtProductName.Text = product.Name;
             txtProductDescription.Text = product.Description;
             cboProductCondition.Text = product.Condition.ToString();
+            picProductPhoto.Image = ByteToImage(product.Photo);
         }
 
         #endregion
@@ -228,6 +237,8 @@ namespace Auktion
             lblAuctionName.Text = auction.Name;
             lblAuctionSupplier.Text = "Supplier: " + auction.Product.Supplier.Firstname;
             lblAuctionStartPrice.Text = "OpeningPrice: " + auction.Startprice + "SEK";
+            picAuctionPicture.Image = ByteToImage(auction.Product.Photo);
+            
 
             lstAuctionBids.DataSource = auction.Bids.ToList();
             lstAuctionBids.DisplayMember = "Date";
@@ -275,7 +286,7 @@ namespace Auktion
 
             if (cboReports.Text == "Monthly Revenue")
             {
-                lstReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
+                dgvReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
             }
             else if (cboReports.Text == "Bidder Report")
             {
@@ -283,11 +294,9 @@ namespace Auktion
             }
             else if (cboReports.Text == "Ending Auctions Report")
             {
-                //dgvReport.DataSource = reportHandler.EndingAuctionsReport(startDate, endDate);
+                dgvReport.DataSource = reportHandler.EndingAuctionsReport(startDate, endDate);
             }
         }
-
-
 
         #endregion
 
@@ -356,6 +365,7 @@ namespace Auktion
                 Name = txtProductName.Text,
                 Description = txtProductDescription.Text,
                 Condition = (Conditions)cboProductCondition.SelectedItem,
+                Photo = ImageToByte(new Bitmap(openFileDialog1.FileName))
             };
         }
 
@@ -391,6 +401,28 @@ namespace Auktion
                 Startdate = dtpAuctionStart.Value,
                 Enddate = dtpAuctionEnd.Value
             };
+        }
+
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        }
+
+        public Bitmap ByteToImage(byte[] bytes)
+        {
+            try
+            {
+                using (var ms = new MemoryStream(bytes))
+                {
+                    var bmp = new Bitmap(ms);
+                    return bmp;
+                }
+            }
+            catch
+            {
+                return new Bitmap(Properties.Resources.error_icon_4);
+            }
         }
 
         #endregion

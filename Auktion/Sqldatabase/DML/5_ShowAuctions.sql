@@ -1,7 +1,7 @@
 USE Auction
 GO
 
-ALTER PROCEDURE ShowAuctionsByDate
+CREATE PROCEDURE ShowAuctionsByDate
 	@Stardate date,
 	@Enddate date
 AS

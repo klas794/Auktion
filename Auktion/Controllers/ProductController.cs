@@ -39,6 +39,7 @@ namespace Auktion.Controllers
             updateProduct.Name = product.Name;
             updateProduct.Description = product.Description;
             updateProduct.Condition = product.Condition;
+            updateProduct.Photo = product.Photo;
 
             var validation = Validation.DbValidate(updateProduct);
 

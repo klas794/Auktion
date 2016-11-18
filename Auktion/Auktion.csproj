@@ -91,6 +91,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Chen\Grupp6.vsdx" />
     <None Include="Chen\Relationsmodellen.vsdx" />
@@ -111,6 +112,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\error-icon-4.png" />
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.1.sql" />
     <Content Include="Sqldatabase\DDL\GruppArbeteBestOftheBest1.3.sql" />
     <Content Include="Sqldatabase\DML\1_AddProduct.sql" />
