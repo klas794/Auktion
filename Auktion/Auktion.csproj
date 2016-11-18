@@ -69,13 +69,12 @@
     </Compile>
     <Compile Include="Models\Address.cs" />
     <Compile Include="Models\Auction.cs" />
+    <Compile Include="Models\AuctionDBModel.cs" />
     <Compile Include="Models\AuctionHistory.cs" />
-    <Compile Include="Models\AuctionModel.cs" />
     <Compile Include="Models\Bid.cs" />
     <Compile Include="Models\Bidder.cs" />
     <Compile Include="Models\Bids.cs" />
     <Compile Include="Models\Product.cs" />
-    <Compile Include="Models\ReportModels\SalesReportModel.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

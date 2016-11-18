@@ -1,8 +1,10 @@
 namespace Auktion.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("Bidder")]
     public partial class Bidder
@@ -10,6 +12,7 @@ namespace Auktion.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bidder()
         {
+            AuctionHistory = new HashSet<AuctionHistory>();
             Bids = new HashSet<Bids>();
         }
 
@@ -38,6 +41,9 @@ namespace Auktion.Models
         public int AddressId { get; set; }
 
         public virtual Address Address { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AuctionHistory> AuctionHistory { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bids> Bids { get; set; }

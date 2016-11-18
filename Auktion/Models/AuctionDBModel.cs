@@ -1,6 +1,9 @@
 namespace Auktion.Models
 {
+    using System;
     using System.Data.Entity;
+    using System.ComponentModel.DataAnnotations.Schema;
+    using System.Linq;
 
     public partial class AuctionModel : DbContext
     {
@@ -47,11 +50,6 @@ namespace Auktion.Models
                 .Property(e => e.BuyNow)
                 .HasPrecision(38, 2);
 
-            modelBuilder.Entity<Auction>()
-                .HasMany(e => e.Bids)
-                .WithRequired(e => e.Auction)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<AuctionHistory>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -72,6 +70,12 @@ namespace Auktion.Models
                 .Property(e => e.Phone)
                 .IsFixedLength()
                 .IsUnicode(false);
+
+            modelBuilder.Entity<Bidder>()
+                .HasMany(e => e.AuctionHistory)
+                .WithRequired(e => e.Bidder)
+                .HasForeignKey(e => e.FinalBidderId)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Bidder>()
                 .HasMany(e => e.Bids)

@@ -41,9 +41,10 @@ Name NVARCHAR(50) NOT NULL,
 Description NVARCHAR(200) NOT NULL,
 Condition INT NOT NULL,
 SupplyId INT,
+Photo VARBINARY(MAX),
 FOREIGN KEY (SupplyId)  REFERENCES Supplier(Id) 
 );
-INSERT INTO Product VALUES ('Playstation','Spelkonsol med två kontroller och fem spel',3,1);
+INSERT INTO Product VALUES ('Playstation','Spelkonsol med två kontroller och fem spel',3,1,0);
 
 CREATE TABLE Auction
 (
@@ -54,12 +55,11 @@ Startdate DATE NOT NULL,
 Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
 BuyNow DECIMAL(38,2) NOT NULL,
-Photo VARBINARY(MAX),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
-INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-09-23','2016-09-23',900,1599,0);
-INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-23','2016-11-01',9,199,0);
-INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,0);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-09-23','2016-09-23',900,1599);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-23','2016-11-01',9,199);
+INSERT INTO Auction VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199);
 
 GO
 CREATE TABLE Bidder
@@ -107,10 +107,12 @@ Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
 BuyNow DECIMAL(38,2) NOT NULL,
 FinalBid DECIMAL(38,2) NOT NULL,
+FinalBidderId INT NOT NULL,
+FOREIGN KEY (FinalBidderId) REFERENCES Bidder(Id),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
 
-INSERT INTO AuctionHistory VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,27)
+INSERT INTO AuctionHistory VALUES ('PlaystationAuktion',1,'2016-10-25','2016-11-01',9,199,27,1)
 
 GO
 
