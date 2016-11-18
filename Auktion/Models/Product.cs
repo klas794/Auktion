@@ -1,19 +1,20 @@
 namespace Auktion.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
+    using System.Data.Entity.Spatial;
+    public enum Conditions
+    {
+        New,
+        Used,
+        Old,
+        Broken
+    }
     [Table("Product")]
     public partial class Product
     {
-        public enum Conditions
-        {
-            New,
-            Used,
-            Old,
-            Broken
-        }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
@@ -34,6 +35,8 @@ namespace Auktion.Models
         public Conditions Condition { get; set; }
 
         public int? SupplyId { get; set; }
+
+        public byte[] Photo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Auction> Auction { get; set; }

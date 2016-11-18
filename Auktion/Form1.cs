@@ -321,7 +321,7 @@ namespace Auktion
             lstBidders.DisplayMember = "Firstname";
             lstBidders.ValueMember = "Id";
 
-            cboProductCondition.DataSource = Enum.GetValues(typeof(Product.Conditions));
+            cboProductCondition.DataSource = Enum.GetValues(typeof(Conditions));
         }
         private Supplier ReadSupplierForm()
         {
@@ -353,7 +353,7 @@ namespace Auktion
                 SupplyId = (int)lstProducts.SelectedValue,
                 Name = txtProductName.Text,
                 Description = txtProductDescription.Text,
-                Condition = (Product.Conditions)cboProductCondition.SelectedItem,
+                Condition = (Conditions)cboProductCondition.SelectedItem,
             };
         }
 

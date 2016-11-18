@@ -11,8 +11,6 @@ namespace Auktion.Models
     {
         public int Id { get; set; }
 
-        public int? AuctionId { get; set; }
-
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
@@ -31,7 +29,9 @@ namespace Auktion.Models
 
         public decimal FinalBid { get; set; }
 
-        public virtual Auction Auction { get; set; }
+        public int FinalBidderId { get; set; }
+
+        public virtual Bidder Bidder { get; set; }
 
         public virtual Product Product { get; set; }
     }
