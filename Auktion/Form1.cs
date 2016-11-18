@@ -146,7 +146,7 @@ namespace Auktion
 
         private void btnProductDelete_Click(object sender, EventArgs e)
         {
-            var result = _productController.Delete(lstProducts.SelectedItem as Product);
+            var result = _productController.Delete((lstProducts.SelectedItem as Product).Id);
 
             if (!result)
             {
@@ -158,13 +158,28 @@ namespace Auktion
 
         private void lstProducts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var product = lstProducts.SelectedItem as Product;
+            try
+            {
+                var product = lstProducts.SelectedItem as Product;
 
-            cboProductSupplier.SelectedValue = product.Supplier.Id;
-            txtProductName.Text = product.Name;
-            txtProductDescription.Text = product.Description;
-            cboProductCondition.Text = product.Condition.ToString();
-            picProductPhoto.Image = ByteToImage(product.Photo);
+                var id = _supplierController.Read(product.Id).Id;
+
+                cboProductSupplier.SelectedValue = id;
+                txtProductName.Text = product.Name;
+                txtProductDescription.Text = product.Description;
+                cboProductCondition.Text = product.Condition.ToString();
+                picProductPhoto.Image = ByteToImage(product.Photo);
+            }
+            catch (Exception)
+            {
+                cboProductSupplier.Text = "";
+                txtProductName.Text = "";
+                txtProductDescription.Text = "";
+                cboProductCondition.Text = "";
+                picProductPhoto.Image = null;
+                throw;
+            }
+
         }
 
         #endregion
@@ -364,6 +379,18 @@ namespace Auktion
         }
         private Product ReadProductForm()
         {
+            Bitmap image;
+
+            try
+            {
+                image = new Bitmap(openFileDialog1.FileName);
+
+            }
+            catch (Exception)
+            {
+                image = new Bitmap(Properties.Resources.error_icon_4);
+            }
+
             return new Product
             {
                 Id = (int)lstProducts.SelectedValue,
@@ -371,8 +398,9 @@ namespace Auktion
                 Name = txtProductName.Text,
                 Description = txtProductDescription.Text,
                 Condition = (Conditions)cboProductCondition.SelectedItem,
-                Photo = ImageToByte(new Bitmap(openFileDialog1.FileName))
+                Photo = ImageToByte(image)
             };
+
         }
 
         private Bidder ReadBidderForm()

@@ -19,11 +19,16 @@ namespace Auktion.Models
         public int AuctionId { get; set; }
 
         [Key]
-        [Column(Order = 2, TypeName = "date")]
+        [Column(Order = 2)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ProductId { get; set; }
+
+        [Key]
+        [Column(Order = 3, TypeName = "date")]
         public DateTime Date { get; set; }
 
         [Key]
-        [Column(Order = 3)]
+        [Column(Order = 4)]
         public decimal Price { get; set; }
 
         public virtual Auction Auction { get; set; }

@@ -50,6 +50,11 @@ namespace Auktion.Models
                 .Property(e => e.BuyNow)
                 .HasPrecision(38, 2);
 
+            modelBuilder.Entity<Auction>()
+                .HasMany(e => e.Bids)
+                .WithRequired(e => e.Auction)
+                .HasForeignKey(e => new { e.AuctionId, e.ProductId });
+
             modelBuilder.Entity<AuctionHistory>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -74,7 +79,6 @@ namespace Auktion.Models
             modelBuilder.Entity<Bidder>()
                 .HasMany(e => e.AuctionHistory)
                 .WithRequired(e => e.Bidder)
-                .HasForeignKey(e => e.BidderId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Bidder>()

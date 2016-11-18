@@ -31,6 +31,11 @@ namespace Auktion.Controllers
             var suppliers = _auctionModel.Supplier.ToList();
             return suppliers;
         }
+        public Supplier Read(int id)
+        {
+            var suppliers = _auctionModel.Supplier.Find(id);
+            return suppliers;
+        }
         public List<ValidationResult> Update(Supplier supplier)
         {
             var updateSupplier = _auctionModel.Supplier.Find(supplier.Id);

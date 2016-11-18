@@ -15,13 +15,18 @@ namespace Auktion.Models
             Bids = new HashSet<Bids>();
         }
 
+        [Key]
+        [Column(Order = 0)]
         public int Id { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Name { get; set; }
 
-        public int? ProductId { get; set; }
+        [Key]
+        [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int ProductId { get; set; }
 
         [Column(TypeName = "date")]
         public DateTime Startdate { get; set; }

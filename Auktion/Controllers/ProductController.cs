@@ -50,17 +50,22 @@ namespace Auktion.Controllers
 
             return validation.Item2;
         }
-        public bool Delete(Product product)
+        public bool Delete(int id)
         {
             try
             {
-                _auctionModel.Product.Remove(product);
+               var productRemoval = _auctionModel.Product.Find(id);
+                
+                var auction = _auctionModel.Auction.Where(x => x.ProductId == id).First();
+                _auctionModel.Auction.Remove(auction);
+                _auctionModel.Product.Remove(productRemoval);
                 _auctionModel.SaveChanges();
 
                 return true;
             }
             catch
             {
+                throw;
                 return false;
             }
         }
