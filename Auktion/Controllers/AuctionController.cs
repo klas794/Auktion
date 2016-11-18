@@ -32,7 +32,8 @@ namespace Auktion.Controllers
         {
             var auctions = _auctionModel.Auction.ToList();
             return auctions;
-        }        
+        }
+        
 
         public List<ValidationResult> Update(Auction auction)
         {

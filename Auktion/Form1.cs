@@ -277,15 +277,17 @@ namespace Auktion
             {
                 lstReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
             }
-            else if (cboReports.Text == "Customer Report")
+            else if (cboReports.Text == "Bidder Report")
             {
-                dgvReport.DataSource = reportHandler.CustomerReport(startDate, endDate);
+                dgvReport.DataSource = reportHandler.BidderReport();
             }
             else if (cboReports.Text == "Ending Auctions Report")
             {
                 //dgvReport.DataSource = reportHandler.EndingAuctionsReport(startDate, endDate);
             }
         }
+
+
 
         #endregion
 

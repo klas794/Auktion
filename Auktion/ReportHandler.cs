@@ -20,11 +20,6 @@ namespace Auktion
         //    return result;
         //}
 
-        public List<Bidder> CustomerReport(DateTime startDate, DateTime endDate)
-        {
-            var result = _auctionModel.Bidder.ToList();
-            return result;
-        }
 
         public object MonthlyRevenue(DateTime startDate, DateTime endDate)
         {
@@ -42,20 +37,23 @@ namespace Auktion
             return monthlyRevenue;
         }
 
-        //public List<Tuple<Bidder, decimal>> GetAllWinnersAndTotalAmountPayed()
-        //{
-        //    var tupleList = new List<Tuple<Bidder, decimal>>();
-        //    // LÄGG TILL Winner i AuctionHistory
-        //    //
-        //    var winners = _auctionModel.AuctionHistory.Select(ah => ah.Winner).Distinct().ToList();
+        public List<Tuple<List<string>, decimal>> BidderReport()
+        {
+            var tupleList = new List<Tuple<List<string>, decimal>>();
+            // LÄGG TILL Winner i AuctionHistory
+            //
+            var winners = _auctionModel.AuctionHistory.Select(ah => ah.BidderId).Distinct().ToList();
 
-        //    foreach (var winner in winners)
-        //    {
-        //        var totalPayed = _auctionModel.AuctionHistory.Select(au => au.FinalBid).Where(a => a.Winner == winner).Sum();
-        //        var tuple = Tuple.Create(winner.UserName, totalPayed);
-        //        tupleList.Add(tuple);
-        //    }
-        //    return tupleList;
-        //}
+            foreach (var winner in winners)
+            {
+                var totalPayed = _auctionModel.AuctionHistory.Where(a => a.Id == winner).Sum(x => x.FinalBid);
+                var names = _auctionModel.AuctionHistory.Where(a => a.Id == winner)
+                    .Select(x => string.Concat(x.Bidder.Firstname, " ", x.Bidder.Lastname)).ToList();
+
+                var tuple = Tuple.Create(names, totalPayed);
+                tupleList.Add(tuple);
+            }
+            return tupleList;
+        }
     }
 }
