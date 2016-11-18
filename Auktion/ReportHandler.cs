@@ -37,21 +37,19 @@ namespace Auktion
             return monthlyRevenue;
         }
 
-        public List<Tuple<List<string>, decimal>> BidderReport()
+        public object BidderReport()
         {
-            var tupleList = new List<Tuple<List<string>, decimal>>();
-            // LÄGG TILL Winner i AuctionHistory
-            //
+            var tupleList = new List<object>();
             var winners = _auctionModel.AuctionHistory.Select(ah => ah.BidderId).Distinct().ToList();
 
             foreach (var winner in winners)
             {
                 var totalPayed = _auctionModel.AuctionHistory.Where(a => a.Id == winner).Sum(x => x.FinalBid);
-                var names = _auctionModel.AuctionHistory.Where(a => a.Id == winner)
-                    .Select(x => string.Concat(x.Bidder.Firstname, " ", x.Bidder.Lastname)).ToList();
+                var name = _auctionModel.AuctionHistory.Where(a => a.Id == winner)
+                    .Select(x => string.Concat(x.Bidder.Firstname, " ", x.Bidder.Lastname)).FirstOrDefault();
 
-                var tuple = Tuple.Create(names, totalPayed);
-                tupleList.Add(tuple);
+                tupleList.Add(new { Name = name, Payed = totalPayed });
+                
             }
             return tupleList;
         }
