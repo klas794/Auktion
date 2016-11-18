@@ -1,8 +1,6 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
 using System;
-using System.Data.Entity.SqlServer;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -277,7 +275,7 @@ namespace Auktion
 
             if (cboReports.Text == "Monthly Revenue")
             {
-                lstReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
+                dgvReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
             }
             else if (cboReports.Text == "Customer Report")
             {

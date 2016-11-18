@@ -1,6 +1,5 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
-using Auktion.Models.ReportModels;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -27,31 +26,19 @@ namespace Auktion
             return result;
         }
 
-        public List<string> MonthlyRevenue(DateTime startDate, DateTime endDate)
+        public object MonthlyRevenue(DateTime startDate, DateTime endDate)
         {
-            //var salesReport = _auctionModel.AuctionHistory.GroupBy(g => new
-            //{
-            //    g.Enddate.Year,
-            //    g.Enddate.Month
-            //}).Select(s => new SalesReportModel
-            //{
-            //    Date = s.FirstOrDefault().Auction.Enddate,
-            //    Auction = s.FirstOrDefault().Auction.Product.Name,
-            //    Commission = s.Sum(x => x.FirstOrDefault().Auction.AuctionHistory.FinalBid * x.Auction.Product.Supplier.Commission)
-            //}).ToList();
-
-            //return salesReport;
-
             var monthlyRevenue = _auctionController.Read()
-               .Where(x => x.Enddate <= DateTime.Now)
+               .Where(x => x.Enddate <= endDate && x.Startdate >= startDate)
                .Select(x => new
                {
                    Revenue = x.Bids.Max(y => y.Price) * x.Product.Supplier.Commission,
                    Month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(x.Enddate.Month),
+                   Year = x.Enddate.Year,
                    Enddate = x.Enddate
                })
                .GroupBy(x => new { Year = x.Enddate.Year, x.Enddate.Month }).ToList()
-               .Select(x => x.Select(y => y.Month).FirstOrDefault() + ": " + x.Sum(y => y.Revenue) + " kr").ToList();
+               .Select(x => new { Month = x.Select(y => y.Month).FirstOrDefault() + " " + x.Select(y => y.Year).FirstOrDefault(), Sum = x.Sum(y => y.Revenue) + " kr" }).ToList();
             return monthlyRevenue;
         }
     }

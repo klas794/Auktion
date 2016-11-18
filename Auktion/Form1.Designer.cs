@@ -170,7 +170,6 @@
             this.btnReportCreate = new System.Windows.Forms.Button();
             this.dtpReportEnd = new System.Windows.Forms.DateTimePicker();
             this.dtpReportStart = new System.Windows.Forms.DateTimePicker();
-            this.lstReport = new System.Windows.Forms.ListBox();
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -1696,7 +1695,6 @@
             // 
             // splitContainer6.Panel2
             // 
-            this.splitContainer6.Panel2.Controls.Add(this.lstReport);
             this.splitContainer6.Panel2.Controls.Add(this.dgvReport);
             this.splitContainer6.Panel2.Controls.Add(this.label28);
             this.splitContainer6.Panel2MinSize = 0;
@@ -1779,14 +1777,6 @@
             this.dtpReportStart.Name = "dtpReportStart";
             this.dtpReportStart.Size = new System.Drawing.Size(200, 20);
             this.dtpReportStart.TabIndex = 1;
-            // 
-            // lstReport
-            // 
-            this.lstReport.FormattingEnabled = true;
-            this.lstReport.Location = new System.Drawing.Point(0, 114);
-            this.lstReport.Name = "lstReport";
-            this.lstReport.Size = new System.Drawing.Size(1064, 342);
-            this.lstReport.TabIndex = 4;
             // 
             // dgvReport
             // 
@@ -2070,7 +2060,6 @@
         private System.Windows.Forms.Button btnAuctionSelectPicture;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.PictureBox picAuctionPicture;
-        private System.Windows.Forms.ListBox lstReport;
         private System.Windows.Forms.Label label44;
     }
 }
