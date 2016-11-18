@@ -29,7 +29,7 @@ namespace Auktion.Models
 
         public decimal FinalBid { get; set; }
 
-        public int FinalBidderId { get; set; }
+        public int BidderId { get; set; }
 
         public virtual Bidder Bidder { get; set; }
 

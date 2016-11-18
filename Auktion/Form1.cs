@@ -1,8 +1,6 @@
 ﻿using Auktion.Controllers;
 using Auktion.Models;
 using System;
-using System.Data.Entity.SqlServer;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -126,7 +124,7 @@ namespace Auktion
 
             if (result.Count > 0)
             {
-                MessageBox.Show(string.Join(Environment.NewLine,result));
+                MessageBox.Show(string.Join(Environment.NewLine, result));
             }
 
             lstProducts.DataSource = _productController.Read();
@@ -136,7 +134,7 @@ namespace Auktion
         {
             var result = _productController.Delete(lstProducts.SelectedItem as Product);
 
-            if(!result)
+            if (!result)
             {
                 MessageBox.Show("Could not Delete Selected Product");
             }
@@ -275,9 +273,9 @@ namespace Auktion
             var endDate = dtpReportEnd.Value;
             var reportHandler = new ReportHandler();
 
-            if (cboReports.Text == "Sales Report")
+            if (cboReports.Text == "Monthly Revenue")
             {
-                //reportHandler.SalesReport(startDate, endDate);
+                lstReport.DataSource = reportHandler.MonthlyRevenue(startDate, endDate);
             }
             else if (cboReports.Text == "Customer Report")
             {
@@ -294,6 +292,9 @@ namespace Auktion
         #region - FormData -
         private void PopulateFormWithData()
         {
+            dtpReportStart.Value = dtpReportEnd.Value.AddYears(-1);
+            dtpAuctionEnd.Value = dtpAuctionStart.Value.AddDays(14);
+
             lstAuctions.DataSource = _auctionController.Read();
             lstAuctions.DisplayMember = "Name";
             lstAuctions.ValueMember = "Id";
@@ -320,7 +321,7 @@ namespace Auktion
             lstBidders.DisplayMember = "Firstname";
             lstBidders.ValueMember = "Id";
 
-            cboProductCondition.DataSource = Enum.GetValues(typeof(Product.Conditions));
+            cboProductCondition.DataSource = Enum.GetValues(typeof(Conditions));
         }
         private Supplier ReadSupplierForm()
         {
@@ -352,7 +353,7 @@ namespace Auktion
                 SupplyId = (int)lstProducts.SelectedValue,
                 Name = txtProductName.Text,
                 Description = txtProductDescription.Text,
-                Condition = (Product.Conditions)cboProductCondition.SelectedItem,
+                Condition = (Conditions)cboProductCondition.SelectedItem,
             };
         }
 
@@ -376,7 +377,7 @@ namespace Auktion
                 Address = address
             };
         }
-        
+
         private Auction ReadAuctionForm()
         {
             return new Auction
@@ -391,23 +392,5 @@ namespace Auktion
         }
 
         #endregion
-
-        private void btnMonthlyRevenue_Click(object sender, EventArgs e)
-        {
-            lstReport.DataSource = _auctionController.Read()
-                .Where(x => x.Enddate <= DateTime.Now)                
-                .Select(x => new {
-                    Revenue = x.Bids.Max(y=> y.Price) * x.Product.Supplier.Commission,
-                    Month = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(x.Enddate.Month),
-                    Enddate = x.Enddate
-                })
-                .GroupBy(x => new { Year = x.Enddate.Year,  x.Enddate.Month } ).ToList()
-                .Select(x => x.Select(y=> y.Month).FirstOrDefault() + ": " + x.Sum(y => y.Revenue) + " kr").ToList();
-        }
-
-        private void BuyersButtonClick_Click(object sender, EventArgs e)
-        {
-            lstReport.DataSource = _auctionController.GetAllWinnersAndTotalAmountPayed();
-        }
     }
 }

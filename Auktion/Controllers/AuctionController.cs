@@ -32,25 +32,7 @@ namespace Auktion.Controllers
         {
             var auctions = _auctionModel.Auction.ToList();
             return auctions;
-        }
-
-        public List<Tuple<Bidder, decimal>> GetAllWinnersAndTotalAmountPayed()
-        {
-            var tupleList = new List<Tuple<Bidder, decimal>>();
-            // LÄGG TILL Winner i AuctionHistory
-            //
-            var winners = _auctionModel.AuctionHistory.Select(ah => ah.Winner).Distinct().ToList();
-            
-            foreach(var winner in winners)
-            {
-                var totalPayed = _auctionModel.AuctionHistory.Select(au => au.FinalBid).Where(a => a.Winner == winner).Sum();
-                var tuple = Tuple.Create(winner.UserName, totalPayed);
-                tupleList.Add(tuple);
-            }
-            return tupleList;
-        }
-
-        
+        }        
 
         public List<ValidationResult> Update(Auction auction)
         {

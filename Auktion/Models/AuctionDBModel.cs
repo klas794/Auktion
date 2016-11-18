@@ -74,7 +74,7 @@ namespace Auktion.Models
             modelBuilder.Entity<Bidder>()
                 .HasMany(e => e.AuctionHistory)
                 .WithRequired(e => e.Bidder)
-                .HasForeignKey(e => e.FinalBidderId)
+                .HasForeignKey(e => e.BidderId)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Bidder>()
