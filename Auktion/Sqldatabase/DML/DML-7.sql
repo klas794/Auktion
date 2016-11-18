@@ -15,7 +15,7 @@ BEGIN
 
 	DELETE FROM Auction WHERE Id = @Id
 
-	INSERT INTO AuctionHistory (ProductId,Name,Startdate,Enddate,StartPrice,BuyNow,FinalBid,FinalBidderId)
+	INSERT INTO AuctionHistory (ProductId,Name,Startdate,Enddate,StartPrice,BuyNow,FinalBid,BidderId)
 	SELECT ProductId,Name,Startdate,Enddate,StartPrice,BuyNow, @FinalPrice, @FinalBidderId FROM DELETED
 END
 

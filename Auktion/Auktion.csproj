@@ -120,6 +120,7 @@
     <Content Include="Sqldatabase\DML\3_ListCurrentAuctions.sql" />
     <Content Include="Sqldatabase\DML\4_ShowBiddingHistory.sql" />
     <Content Include="Sqldatabase\DML\5_ShowAuctions.sql" />
+    <Content Include="Sqldatabase\DML\DML-7.sql" />
     <Content Include="Sqldatabase\DML\DML-8.sql" />
     <Content Include="Sqldatabase\DML\DML-9.sql" />
     <Content Include="Sqldatabase\DDL\BestOftheBest0.9.sql" />
