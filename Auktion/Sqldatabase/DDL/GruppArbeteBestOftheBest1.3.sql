@@ -107,8 +107,8 @@ Enddate DATE NOT NULL,
 Startprice DECIMAL(38,2) NOT NULL,
 BuyNow DECIMAL(38,2) NOT NULL,
 FinalBid DECIMAL(38,2) NOT NULL,
-FinalBidderId INT NOT NULL,
-FOREIGN KEY (FinalBidderId) REFERENCES Bidder(Id),
+BidderId INT NOT NULL,
+FOREIGN KEY (BidderId) REFERENCES Bidder(Id),
 FOREIGN KEY (ProductId) REFERENCES Product(Id)
 );
 
