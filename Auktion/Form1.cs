@@ -404,5 +404,10 @@ namespace Auktion
                 .GroupBy(x => new { Year = x.Enddate.Year,  x.Enddate.Month } ).ToList()
                 .Select(x => x.Select(y=> y.Month).FirstOrDefault() + ": " + x.Sum(y => y.Revenue) + " kr").ToList();
         }
+
+        private void BuyersButtonClick_Click(object sender, EventArgs e)
+        {
+            lstReport.DataSource = _auctionController.GetAllWinnersAndTotalAmountPayed();
+        }
     }
 }
