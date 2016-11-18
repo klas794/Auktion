@@ -111,8 +111,14 @@ namespace Auktion
         private void btnProductSelectPicture_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
-            picProductPhoto.Image = new Bitmap(openFileDialog1.FileName);
-            txtProductPhotoPath.Text = openFileDialog1.FileName;
+            try
+            {
+                picProductPhoto.Image = new Bitmap(openFileDialog1.FileName);
+            }
+            catch
+            {
+
+            }
         }
 
         private void btnProductAdd_Click(object sender, EventArgs e)
