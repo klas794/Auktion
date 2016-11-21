@@ -130,6 +130,7 @@ namespace Auktion
                 MessageBox.Show(string.Join(Environment.NewLine, result));
             }
 
+            PopulateFormWithData();
             lstProducts.DataSource = _productController.Read();
         }
         private void btnProductEdit_Click(object sender, EventArgs e)
@@ -177,7 +178,7 @@ namespace Auktion
                 txtProductDescription.Text = "";
                 cboProductCondition.Text = "";
                 picProductPhoto.Image = null;
-                throw;
+                //throw;
             }
 
         }
@@ -428,7 +429,7 @@ namespace Auktion
         {
             return new Auction
             {
-                ProductId = (int)cboAuctionProduct.SelectedValue,
+                Product = cboAuctionProduct.SelectedItem as Product,
                 Name = txtAuctionName.Text,
                 Startprice = decimal.Parse(txtAuctionOpeningPrice.Text),
                 BuyNow = decimal.Parse(txtAuctionBuyNow.Text),
@@ -460,5 +461,6 @@ namespace Auktion
         }
 
         #endregion
+
     }
 }
