@@ -1,7 +1,7 @@
 USE Auction
 GO
 
-ALTER PROCEDURE ListCurrentAuctions
+CREATE PROCEDURE ListCurrentAuctions
 AS
 	SELECT DISTINCT a.Id [Auction Id], a.ProductId [Product Id], a.Startdate [Start Date], a.Enddate [End Date], 
 		   (SELECT MAX(Price) FROM Bids WHERE AuctionId = a.Id) [Highest Bid],

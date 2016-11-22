@@ -13,4 +13,4 @@ AS
 	WHERE a.Startdate >= @Stardate AND a.Enddate <= @Enddate
 GO
 
-EXEC ShowAuctionsByDate '2016-11-12', '2016-11-25'
+EXEC ShowAuctionsByDate '2016-10-01', '2016-11-18'
