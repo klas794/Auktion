@@ -104,6 +104,8 @@
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.lstProducts = new System.Windows.Forms.ListBox();
             this.label25 = new System.Windows.Forms.Label();
+            this.picProductPhoto = new System.Windows.Forms.PictureBox();
+            this.btnProductSelectPicture = new System.Windows.Forms.Button();
             this.panel14 = new System.Windows.Forms.Panel();
             this.cboProductCondition = new System.Windows.Forms.ComboBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -171,8 +173,6 @@
             this.dgvReport = new System.Windows.Forms.DataGridView();
             this.label28 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnProductSelectPicture = new System.Windows.Forms.Button();
-            this.picProductPhoto = new System.Windows.Forms.PictureBox();
             this.AuctionsPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
@@ -209,6 +209,7 @@
             this.splitContainer5.Panel1.SuspendLayout();
             this.splitContainer5.Panel2.SuspendLayout();
             this.splitContainer5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picProductPhoto)).BeginInit();
             this.panel14.SuspendLayout();
             this.panel16.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -234,7 +235,6 @@
             this.splitContainer6.Panel2.SuspendLayout();
             this.splitContainer6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picProductPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // AuctionsPage
@@ -243,7 +243,7 @@
             this.AuctionsPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AuctionsPage.Location = new System.Drawing.Point(4, 22);
             this.AuctionsPage.Name = "AuctionsPage";
-            this.AuctionsPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.AuctionsPage.Padding = new System.Windows.Forms.Padding(3);
             this.AuctionsPage.Size = new System.Drawing.Size(1060, 549);
             this.AuctionsPage.TabIndex = 4;
             this.AuctionsPage.Text = "Auctions";
@@ -648,7 +648,7 @@
             this.BidderPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BidderPage.Location = new System.Drawing.Point(4, 22);
             this.BidderPage.Name = "BidderPage";
-            this.BidderPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.BidderPage.Padding = new System.Windows.Forms.Padding(3);
             this.BidderPage.Size = new System.Drawing.Size(1060, 549);
             this.BidderPage.TabIndex = 3;
             this.BidderPage.Text = "Bidders";
@@ -1019,7 +1019,7 @@
             this.ProductPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductPage.Location = new System.Drawing.Point(4, 22);
             this.ProductPage.Name = "ProductPage";
-            this.ProductPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.ProductPage.Padding = new System.Windows.Forms.Padding(3);
             this.ProductPage.Size = new System.Drawing.Size(1060, 549);
             this.ProductPage.TabIndex = 5;
             this.ProductPage.Text = "Products";
@@ -1073,6 +1073,25 @@
             this.label25.TabIndex = 1;
             this.label25.Text = "Products";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // picProductPhoto
+            // 
+            this.picProductPhoto.Location = new System.Drawing.Point(11, 313);
+            this.picProductPhoto.Name = "picProductPhoto";
+            this.picProductPhoto.Size = new System.Drawing.Size(250, 144);
+            this.picProductPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picProductPhoto.TabIndex = 18;
+            this.picProductPhoto.TabStop = false;
+            // 
+            // btnProductSelectPicture
+            // 
+            this.btnProductSelectPicture.Location = new System.Drawing.Point(11, 279);
+            this.btnProductSelectPicture.Name = "btnProductSelectPicture";
+            this.btnProductSelectPicture.Size = new System.Drawing.Size(108, 28);
+            this.btnProductSelectPicture.TabIndex = 16;
+            this.btnProductSelectPicture.Text = "Select Picture";
+            this.btnProductSelectPicture.UseVisualStyleBackColor = true;
+            this.btnProductSelectPicture.Click += new System.EventHandler(this.btnProductSelectPicture_Click);
             // 
             // panel14
             // 
@@ -1247,7 +1266,7 @@
             this.SuppliersPage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SuppliersPage.Location = new System.Drawing.Point(4, 22);
             this.SuppliersPage.Name = "SuppliersPage";
-            this.SuppliersPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.SuppliersPage.Padding = new System.Windows.Forms.Padding(3);
             this.SuppliersPage.Size = new System.Drawing.Size(1060, 549);
             this.SuppliersPage.TabIndex = 0;
             this.SuppliersPage.Text = "Suppliers";
@@ -1790,25 +1809,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Image Files|*.jpeg;*.jpg;*.png";
             // 
-            // btnProductSelectPicture
-            // 
-            this.btnProductSelectPicture.Location = new System.Drawing.Point(11, 279);
-            this.btnProductSelectPicture.Name = "btnProductSelectPicture";
-            this.btnProductSelectPicture.Size = new System.Drawing.Size(108, 28);
-            this.btnProductSelectPicture.TabIndex = 16;
-            this.btnProductSelectPicture.Text = "Select Picture";
-            this.btnProductSelectPicture.UseVisualStyleBackColor = true;
-            this.btnProductSelectPicture.Click += new System.EventHandler(this.btnProductSelectPicture_Click);
-            // 
-            // picProductPhoto
-            // 
-            this.picProductPhoto.Location = new System.Drawing.Point(11, 313);
-            this.picProductPhoto.Name = "picProductPhoto";
-            this.picProductPhoto.Size = new System.Drawing.Size(250, 144);
-            this.picProductPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picProductPhoto.TabIndex = 18;
-            this.picProductPhoto.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1876,6 +1876,7 @@
             this.splitContainer5.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
             this.splitContainer5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picProductPhoto)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             this.panel16.ResumeLayout(false);
@@ -1916,7 +1917,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer6)).EndInit();
             this.splitContainer6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReport)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picProductPhoto)).EndInit();
             this.ResumeLayout(false);
 
         }

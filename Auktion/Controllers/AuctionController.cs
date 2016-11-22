@@ -39,7 +39,7 @@ namespace Auktion.Controllers
         {
             var updateAuction = _auctionModel.Auction.Find(auction.Id);
 
-            updateAuction.ProductId = auction.ProductId;
+            updateAuction.Product = auction.Product;
             updateAuction.Name = auction.Name;
             updateAuction.Startprice = auction.Startprice;
             updateAuction.BuyNow = auction.BuyNow;

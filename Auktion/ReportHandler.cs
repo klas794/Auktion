@@ -21,11 +21,10 @@ namespace Auktion
                .Select(x => new
                {
                    Name = x.Name,
-                   Revenue = x.Bids.Max(y => y.Price) * x.Product.Supplier.Commission,
+                   Revenue = Math.Round(x.Bids.Max(y => y.Price) * x.Product.Supplier.Commission,2),
                }).ToList();
             return result;
         }
-
 
         public object MonthlyRevenue(DateTime startDate, DateTime endDate)
         {
@@ -39,7 +38,7 @@ namespace Auktion
                    Enddate = x.Enddate
                })
                .GroupBy(x => new { Year = x.Enddate.Year, x.Enddate.Month }).ToList()
-               .Select(x => new { Month = x.Select(y => y.Month).FirstOrDefault() + " " + x.Select(y => y.Year).FirstOrDefault(), Sum = x.Sum(y => y.Revenue) + " kr" }).ToList();
+               .Select(x => new { Month = x.Select(y => y.Month).FirstOrDefault() + " " + x.Select(y => y.Year).FirstOrDefault(), Sum = Math.Round(x.Sum(y => y.Revenue),2) + " kr" }).ToList();
             return monthlyRevenue;
         }
 
